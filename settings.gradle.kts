@@ -1,5 +1,7 @@
 rootProject.name = "receipt-print"
 
+include(":receipt-core")
+
 pluginManagement {
     repositories {
         gradlePluginPortal()

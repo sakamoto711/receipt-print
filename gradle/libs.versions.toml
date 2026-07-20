@@ -1,0 +1,9 @@
+[versions]
+kotlin = "2.4.10"
+kotlinx-collections-immutable = "0.4.0"
+
+[libraries]
+kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+
+[plugins]
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

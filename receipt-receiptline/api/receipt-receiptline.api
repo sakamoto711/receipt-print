@@ -1,0 +1,63 @@
+public final class receiptdsl/receiptline/DefaultReceiptLineExporter : receiptdsl/receiptline/ReceiptLineExporter {
+	public static final field INSTANCE Lreceiptdsl/receiptline/DefaultReceiptLineExporter;
+	public fun export (Lreceiptdsl/model/PrintJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/receiptline/ReceiptLineResult;
+	public fun export (Lreceiptdsl/model/PrintJob;Lreceiptdsl/receiptline/PreviewProfile;)Lreceiptdsl/receiptline/ReceiptLineResult;
+}
+
+public final class receiptdsl/receiptline/PreviewApproximation : receiptdsl/diagnostic/CompilationIssue {
+	public fun <init> (Ljava/lang/String;Lreceiptdsl/diagnostic/NodePath;Ljava/lang/String;Lreceiptdsl/diagnostic/DiagnosticSeverity;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Lreceiptdsl/diagnostic/NodePath;Ljava/lang/String;Lreceiptdsl/diagnostic/DiagnosticSeverity;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lreceiptdsl/diagnostic/NodePath;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lreceiptdsl/diagnostic/DiagnosticSeverity;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Lreceiptdsl/diagnostic/NodePath;Ljava/lang/String;Lreceiptdsl/diagnostic/DiagnosticSeverity;Ljava/lang/String;)Lreceiptdsl/receiptline/PreviewApproximation;
+	public static synthetic fun copy$default (Lreceiptdsl/receiptline/PreviewApproximation;Ljava/lang/String;Lreceiptdsl/diagnostic/NodePath;Ljava/lang/String;Lreceiptdsl/diagnostic/DiagnosticSeverity;Ljava/lang/String;ILjava/lang/Object;)Lreceiptdsl/receiptline/PreviewApproximation;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getCode ()Ljava/lang/String;
+	public final fun getFeature ()Ljava/lang/String;
+	public fun getMessage ()Ljava/lang/String;
+	public fun getPath ()Lreceiptdsl/diagnostic/NodePath;
+	public fun getSeverity ()Lreceiptdsl/diagnostic/DiagnosticSeverity;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/receiptline/PreviewProfile {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun copy (I)Lreceiptdsl/receiptline/PreviewProfile;
+	public static synthetic fun copy$default (Lreceiptdsl/receiptline/PreviewProfile;IILjava/lang/Object;)Lreceiptdsl/receiptline/PreviewProfile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColumnsPerLine ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class receiptdsl/receiptline/ReceiptLineExporter {
+	public abstract fun export (Lreceiptdsl/model/PrintJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/receiptline/ReceiptLineResult;
+	public abstract fun export (Lreceiptdsl/model/PrintJob;Lreceiptdsl/receiptline/PreviewProfile;)Lreceiptdsl/receiptline/ReceiptLineResult;
+	public static synthetic fun export$default (Lreceiptdsl/receiptline/ReceiptLineExporter;Lreceiptdsl/model/PrintJob;Lreceiptdsl/receiptline/PreviewProfile;ILjava/lang/Object;)Lreceiptdsl/receiptline/ReceiptLineResult;
+}
+
+public final class receiptdsl/receiptline/ReceiptLineExporter$DefaultImpls {
+	public static synthetic fun export$default (Lreceiptdsl/receiptline/ReceiptLineExporter;Lreceiptdsl/model/PrintJob;Lreceiptdsl/receiptline/PreviewProfile;ILjava/lang/Object;)Lreceiptdsl/receiptline/ReceiptLineResult;
+}
+
+public final class receiptdsl/receiptline/ReceiptLineResult {
+	public fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/PersistentList;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lkotlinx/collections/immutable/PersistentList;
+	public final fun copy (Ljava/lang/String;Lkotlinx/collections/immutable/PersistentList;)Lreceiptdsl/receiptline/ReceiptLineResult;
+	public static synthetic fun copy$default (Lreceiptdsl/receiptline/ReceiptLineResult;Ljava/lang/String;Lkotlinx/collections/immutable/PersistentList;ILjava/lang/Object;)Lreceiptdsl/receiptline/ReceiptLineResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDiagnostics ()Lkotlinx/collections/immutable/PersistentList;
+	public final fun getMarkdown ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isSuccess ()Z
+	public fun toString ()Ljava/lang/String;
+}
+

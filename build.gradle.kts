@@ -1,5 +1,6 @@
 import groovy.json.JsonSlurper
 import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.tasks.Exec
 import org.gradle.api.tasks.JavaExec
 import org.gradle.api.tasks.compile.JavaCompile
 
@@ -154,12 +155,54 @@ tasks.register("coreCheck") {
         ":receipt-core:checkKotlinAbi",
         ":receipt-command-escpos:checkKotlinAbi",
         ":receipt-command-star:checkKotlinAbi",
+        ":receipt-receiptline:checkKotlinAbi",
         ":receipt-core:jvmTest",
         ":receipt-core:iosSimulatorArm64Test",
         ":receipt-command-escpos:jvmTest",
         ":receipt-command-escpos:iosSimulatorArm64Test",
         ":receipt-command-star:jvmTest",
         ":receipt-command-star:iosSimulatorArm64Test",
+        ":receipt-receiptline:jvmTest",
+        ":receipt-receiptline:iosSimulatorArm64Test",
+    )
+}
+
+val receiptLineNpmInstall by tasks.registering(Exec::class) {
+    group = "build setup"
+    description = "Installs the pinned ReceiptLine preview dependency when it is not already present."
+    workingDir(layout.projectDirectory.dir("tools/receiptline"))
+    inputs.files(
+        layout.projectDirectory.file("tools/receiptline/package.json"),
+        layout.projectDirectory.file("tools/receiptline/package-lock.json"),
+    )
+    outputs.file(layout.projectDirectory.file("tools/receiptline/node_modules/receiptline/package.json"))
+    commandLine(
+        "npm",
+        "ci",
+        "--ignore-scripts",
+        "--cache",
+        layout.buildDirectory.dir("npm-cache").get().asFile.absolutePath,
+    )
+}
+
+tasks.register<Exec>("receiptLineSvgCheck") {
+    group = "verification"
+    description = "Regenerates ReceiptLine SVG in memory and compares it with the committed golden."
+    dependsOn(receiptLineNpmInstall)
+    workingDir(layout.projectDirectory.dir("tools/receiptline"))
+    inputs.files(
+        layout.projectDirectory.file("fixtures/previews/core-nodes.receiptline"),
+        layout.projectDirectory.file("fixtures/previews/core-nodes.svg"),
+        layout.projectDirectory.file("tools/receiptline/package-lock.json"),
+        layout.projectDirectory.file("tools/receiptline/receiptline-svg.mjs"),
+        layout.projectDirectory.file("tools/receiptline/verify-svg.mjs"),
+    )
+    commandLine(
+        "node",
+        "verify-svg.mjs",
+        "../../fixtures/previews/core-nodes.receiptline",
+        "../../fixtures/previews/core-nodes.svg",
+        "48",
     )
 }
 
@@ -170,5 +213,6 @@ tasks.register("publishAllToBuildRepository") {
         ":receipt-core:publishAllPublicationsToBuildRepository",
         ":receipt-command-escpos:publishAllPublicationsToBuildRepository",
         ":receipt-command-star:publishAllPublicationsToBuildRepository",
+        ":receipt-receiptline:publishAllPublicationsToBuildRepository",
     )
 }

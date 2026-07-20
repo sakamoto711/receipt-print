@@ -1,0 +1,13 @@
+{
+  "name": "receipt-print-preview-tools",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "render": "node render-svg.mjs",
+    "verify": "node verify-svg.mjs ../../fixtures/previews/core-nodes.receiptline ../../fixtures/previews/core-nodes.svg 48"
+  },
+  "dependencies": {
+    "receiptline": "4.0.1"
+  }
+}

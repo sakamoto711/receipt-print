@@ -1,0 +1,10 @@
+{text:nowrap}
+| `"^^^A\|B |
+| `"^^^C |
+{text:wrap}
+品名 | 100
+---
+{code:a\;b; option:qrcode,6,h; align:center}
+
+
+=

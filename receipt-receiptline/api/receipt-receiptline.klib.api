@@ -1,0 +1,73 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <receipt-kmp:receipt-receiptline>
+abstract interface receiptdsl.receiptline/ReceiptLineExporter { // receiptdsl.receiptline/ReceiptLineExporter|null[0]
+    abstract fun export(receiptdsl.model/PrintJob, receiptdsl.model/PrinterProfile): receiptdsl.receiptline/ReceiptLineResult // receiptdsl.receiptline/ReceiptLineExporter.export|export(receiptdsl.model.PrintJob;receiptdsl.model.PrinterProfile){}[0]
+    abstract fun export(receiptdsl.model/PrintJob, receiptdsl.receiptline/PreviewProfile = ...): receiptdsl.receiptline/ReceiptLineResult // receiptdsl.receiptline/ReceiptLineExporter.export|export(receiptdsl.model.PrintJob;receiptdsl.receiptline.PreviewProfile){}[0]
+}
+
+final class receiptdsl.receiptline/PreviewApproximation : receiptdsl.diagnostic/CompilationIssue { // receiptdsl.receiptline/PreviewApproximation|null[0]
+    constructor <init>(kotlin/String, receiptdsl.diagnostic/NodePath?, kotlin/String = ..., receiptdsl.diagnostic/DiagnosticSeverity = ..., kotlin/String = ...) // receiptdsl.receiptline/PreviewApproximation.<init>|<init>(kotlin.String;receiptdsl.diagnostic.NodePath?;kotlin.String;receiptdsl.diagnostic.DiagnosticSeverity;kotlin.String){}[0]
+
+    final val code // receiptdsl.receiptline/PreviewApproximation.code|{}code[0]
+        final fun <get-code>(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.code.<get-code>|<get-code>(){}[0]
+    final val feature // receiptdsl.receiptline/PreviewApproximation.feature|{}feature[0]
+        final fun <get-feature>(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.feature.<get-feature>|<get-feature>(){}[0]
+    final val message // receiptdsl.receiptline/PreviewApproximation.message|{}message[0]
+        final fun <get-message>(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.message.<get-message>|<get-message>(){}[0]
+    final val path // receiptdsl.receiptline/PreviewApproximation.path|{}path[0]
+        final fun <get-path>(): receiptdsl.diagnostic/NodePath? // receiptdsl.receiptline/PreviewApproximation.path.<get-path>|<get-path>(){}[0]
+    final val severity // receiptdsl.receiptline/PreviewApproximation.severity|{}severity[0]
+        final fun <get-severity>(): receiptdsl.diagnostic/DiagnosticSeverity // receiptdsl.receiptline/PreviewApproximation.severity.<get-severity>|<get-severity>(){}[0]
+
+    final fun component1(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.component1|component1(){}[0]
+    final fun component2(): receiptdsl.diagnostic/NodePath? // receiptdsl.receiptline/PreviewApproximation.component2|component2(){}[0]
+    final fun component3(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.component3|component3(){}[0]
+    final fun component4(): receiptdsl.diagnostic/DiagnosticSeverity // receiptdsl.receiptline/PreviewApproximation.component4|component4(){}[0]
+    final fun component5(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., receiptdsl.diagnostic/NodePath? = ..., kotlin/String = ..., receiptdsl.diagnostic/DiagnosticSeverity = ..., kotlin/String = ...): receiptdsl.receiptline/PreviewApproximation // receiptdsl.receiptline/PreviewApproximation.copy|copy(kotlin.String;receiptdsl.diagnostic.NodePath?;kotlin.String;receiptdsl.diagnostic.DiagnosticSeverity;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.receiptline/PreviewApproximation.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.receiptline/PreviewApproximation.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.receiptline/PreviewApproximation.toString|toString(){}[0]
+}
+
+final class receiptdsl.receiptline/PreviewProfile { // receiptdsl.receiptline/PreviewProfile|null[0]
+    constructor <init>(kotlin/Int = ...) // receiptdsl.receiptline/PreviewProfile.<init>|<init>(kotlin.Int){}[0]
+
+    final val columnsPerLine // receiptdsl.receiptline/PreviewProfile.columnsPerLine|{}columnsPerLine[0]
+        final fun <get-columnsPerLine>(): kotlin/Int // receiptdsl.receiptline/PreviewProfile.columnsPerLine.<get-columnsPerLine>|<get-columnsPerLine>(){}[0]
+
+    final fun component1(): kotlin/Int // receiptdsl.receiptline/PreviewProfile.component1|component1(){}[0]
+    final fun copy(kotlin/Int = ...): receiptdsl.receiptline/PreviewProfile // receiptdsl.receiptline/PreviewProfile.copy|copy(kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.receiptline/PreviewProfile.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.receiptline/PreviewProfile.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.receiptline/PreviewProfile.toString|toString(){}[0]
+}
+
+final class receiptdsl.receiptline/ReceiptLineResult { // receiptdsl.receiptline/ReceiptLineResult|null[0]
+    constructor <init>(kotlin/String?, kotlinx.collections.immutable/PersistentList<receiptdsl.diagnostic/Diagnostic>) // receiptdsl.receiptline/ReceiptLineResult.<init>|<init>(kotlin.String?;kotlinx.collections.immutable.PersistentList<receiptdsl.diagnostic.Diagnostic>){}[0]
+
+    final val diagnostics // receiptdsl.receiptline/ReceiptLineResult.diagnostics|{}diagnostics[0]
+        final fun <get-diagnostics>(): kotlinx.collections.immutable/PersistentList<receiptdsl.diagnostic/Diagnostic> // receiptdsl.receiptline/ReceiptLineResult.diagnostics.<get-diagnostics>|<get-diagnostics>(){}[0]
+    final val isSuccess // receiptdsl.receiptline/ReceiptLineResult.isSuccess|{}isSuccess[0]
+        final fun <get-isSuccess>(): kotlin/Boolean // receiptdsl.receiptline/ReceiptLineResult.isSuccess.<get-isSuccess>|<get-isSuccess>(){}[0]
+    final val markdown // receiptdsl.receiptline/ReceiptLineResult.markdown|{}markdown[0]
+        final fun <get-markdown>(): kotlin/String? // receiptdsl.receiptline/ReceiptLineResult.markdown.<get-markdown>|<get-markdown>(){}[0]
+
+    final fun component1(): kotlin/String? // receiptdsl.receiptline/ReceiptLineResult.component1|component1(){}[0]
+    final fun component2(): kotlinx.collections.immutable/PersistentList<receiptdsl.diagnostic/Diagnostic> // receiptdsl.receiptline/ReceiptLineResult.component2|component2(){}[0]
+    final fun copy(kotlin/String? = ..., kotlinx.collections.immutable/PersistentList<receiptdsl.diagnostic/Diagnostic> = ...): receiptdsl.receiptline/ReceiptLineResult // receiptdsl.receiptline/ReceiptLineResult.copy|copy(kotlin.String?;kotlinx.collections.immutable.PersistentList<receiptdsl.diagnostic.Diagnostic>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.receiptline/ReceiptLineResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.receiptline/ReceiptLineResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.receiptline/ReceiptLineResult.toString|toString(){}[0]
+}
+
+final object receiptdsl.receiptline/DefaultReceiptLineExporter : receiptdsl.receiptline/ReceiptLineExporter { // receiptdsl.receiptline/DefaultReceiptLineExporter|null[0]
+    final fun export(receiptdsl.model/PrintJob, receiptdsl.model/PrinterProfile): receiptdsl.receiptline/ReceiptLineResult // receiptdsl.receiptline/DefaultReceiptLineExporter.export|export(receiptdsl.model.PrintJob;receiptdsl.model.PrinterProfile){}[0]
+    final fun export(receiptdsl.model/PrintJob, receiptdsl.receiptline/PreviewProfile): receiptdsl.receiptline/ReceiptLineResult // receiptdsl.receiptline/DefaultReceiptLineExporter.export|export(receiptdsl.model.PrintJob;receiptdsl.receiptline.PreviewProfile){}[0]
+}

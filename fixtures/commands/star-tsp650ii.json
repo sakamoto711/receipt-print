@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "command/star-tsp650ii/primitives",
+  "printer": { "profileId": "star-tsp650ii", "columnsPerLine": 48 },
+  "commands": [
+    { "operation": "session-init", "bytesHex": "1b401b730000" },
+    { "operation": "ticket-style-reset", "bytesHex": "1b1d61001b6900001b461b35" },
+    { "operation": "align-center", "bytesHex": "1b1d6101" },
+    { "operation": "scale-2x2", "bytesHex": "1b690101" },
+    { "operation": "emphasis-on", "bytesHex": "1b45" },
+    { "operation": "inverse-on", "bytesHex": "1b34" },
+    { "operation": "cp932-日本-lf", "bytesHex": "93fa967b0a" },
+    { "operation": "rule-thin", "bytesHex": "1b4c0003", "repeatByteHex": "08", "repeatCount": 768 },
+    { "operation": "qr-A-compatibility", "bytesHex": "1b1d795330021b1d795331021b1d795332061b1d794431000100411b1d7950" },
+    { "operation": "sound", "bytesHex": "1b1d19110132001b1d1912010100" },
+    { "operation": "cut-partial", "bytesHex": "1b6403" },
+    { "operation": "cut-full", "bytesHex": "1b6402" },
+    { "operation": "cut-no-margin-compatibility", "bytesHex": "1b6402" },
+    { "operation": "reverse-on", "bytesHex": "1b1d6830010000" },
+    { "operation": "reverse-off", "bytesHex": "1b1d6830000000" }
+  ]
+}

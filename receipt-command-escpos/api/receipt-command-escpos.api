@@ -1,0 +1,6 @@
+public final class receiptdsl/escpos/EscPosCommandEncoder : receiptdsl/command/CommandEncoder {
+	public static final field INSTANCE Lreceiptdsl/escpos/EscPosCommandEncoder;
+	public fun encode (Lreceiptdsl/layout/LaidOutJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/command/EncodeResult;
+	public fun getSupportedCommandSet ()Lreceiptdsl/model/CommandSet;
+}
+

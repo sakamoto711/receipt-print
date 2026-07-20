@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "fixtureId": "command/epson-tm-t90kp/primitives",
+  "printer": { "profileId": "epson-tm-t90kp", "columnsPerLine": 48 },
+  "commands": [
+    { "operation": "session-init", "bytesHex": "1b401b21001b52081c261c2e001c4301" },
+    { "operation": "ticket-style-reset", "bytesHex": "1b61001d21001b45001d4200" },
+    { "operation": "align-center", "bytesHex": "1b6101" },
+    { "operation": "scale-2x2", "bytesHex": "1d2111" },
+    { "operation": "emphasis-on", "bytesHex": "1b4501" },
+    { "operation": "inverse-on", "bytesHex": "1d4201" },
+    { "operation": "cp932-日本-lf", "bytesHex": "93fa967b0a" },
+    { "operation": "rule-thin", "bytesHex": "1b2a002001", "repeatByteHex": "08", "repeatCount": 288 },
+    { "operation": "qr-A-compatibility", "bytesHex": "1d286b03003143061d286b0400315030411d286b0300315130" },
+    { "operation": "sound", "bytesHex": "1014030300010100" },
+    { "operation": "cut-partial-compatibility", "bytesHex": "1d564200" },
+    { "operation": "cut-full-compatibility", "bytesHex": "1d564200" },
+    { "operation": "cut-no-margin", "bytesHex": "1d56620a0a" },
+    { "operation": "reverse-on", "bytesHex": "1b7b01" },
+    { "operation": "reverse-off", "bytesHex": "1b7b00" }
+  ]
+}

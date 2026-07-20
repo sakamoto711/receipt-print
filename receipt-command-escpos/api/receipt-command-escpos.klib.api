@@ -1,0 +1,14 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <receipt-kmp:receipt-command-escpos>
+final object receiptdsl.escpos/EscPosCommandEncoder : receiptdsl.command/CommandEncoder { // receiptdsl.escpos/EscPosCommandEncoder|null[0]
+    final val supportedCommandSet // receiptdsl.escpos/EscPosCommandEncoder.supportedCommandSet|{}supportedCommandSet[0]
+        final fun <get-supportedCommandSet>(): receiptdsl.model/CommandSet // receiptdsl.escpos/EscPosCommandEncoder.supportedCommandSet.<get-supportedCommandSet>|<get-supportedCommandSet>(){}[0]
+
+    final fun encode(receiptdsl.layout/LaidOutJob, receiptdsl.model/PrinterProfile): receiptdsl.command/EncodeResult // receiptdsl.escpos/EscPosCommandEncoder.encode|encode(receiptdsl.layout.LaidOutJob;receiptdsl.model.PrinterProfile){}[0]
+}

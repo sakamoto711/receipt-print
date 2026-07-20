@@ -1,0 +1,30 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <receipt-kmp:receipt-command-star>
+final class receiptdsl.star/StarCommandEncoder : receiptdsl.command/CommandEncoder { // receiptdsl.star/StarCommandEncoder|null[0]
+    constructor <init>(receiptdsl.model/CommandSet) // receiptdsl.star/StarCommandEncoder.<init>|<init>(receiptdsl.model.CommandSet){}[0]
+
+    final val supportedCommandSet // receiptdsl.star/StarCommandEncoder.supportedCommandSet|{}supportedCommandSet[0]
+        final fun <get-supportedCommandSet>(): receiptdsl.model/CommandSet // receiptdsl.star/StarCommandEncoder.supportedCommandSet.<get-supportedCommandSet>|<get-supportedCommandSet>(){}[0]
+
+    final fun encode(receiptdsl.layout/LaidOutJob, receiptdsl.model/PrinterProfile): receiptdsl.command/EncodeResult // receiptdsl.star/StarCommandEncoder.encode|encode(receiptdsl.layout.LaidOutJob;receiptdsl.model.PrinterProfile){}[0]
+}
+
+final object receiptdsl.star/StarLineModeCommandEncoder : receiptdsl.command/CommandEncoder { // receiptdsl.star/StarLineModeCommandEncoder|null[0]
+    final val supportedCommandSet // receiptdsl.star/StarLineModeCommandEncoder.supportedCommandSet|{}supportedCommandSet[0]
+        final fun <get-supportedCommandSet>(): receiptdsl.model/CommandSet // receiptdsl.star/StarLineModeCommandEncoder.supportedCommandSet.<get-supportedCommandSet>|<get-supportedCommandSet>(){}[0]
+
+    final fun encode(receiptdsl.layout/LaidOutJob, receiptdsl.model/PrinterProfile): receiptdsl.command/EncodeResult // receiptdsl.star/StarLineModeCommandEncoder.encode|encode(receiptdsl.layout.LaidOutJob;receiptdsl.model.PrinterProfile){}[0]
+}
+
+final object receiptdsl.star/StarPrntCommandEncoder : receiptdsl.command/CommandEncoder { // receiptdsl.star/StarPrntCommandEncoder|null[0]
+    final val supportedCommandSet // receiptdsl.star/StarPrntCommandEncoder.supportedCommandSet|{}supportedCommandSet[0]
+        final fun <get-supportedCommandSet>(): receiptdsl.model/CommandSet // receiptdsl.star/StarPrntCommandEncoder.supportedCommandSet.<get-supportedCommandSet>|<get-supportedCommandSet>(){}[0]
+
+    final fun encode(receiptdsl.layout/LaidOutJob, receiptdsl.model/PrinterProfile): receiptdsl.command/EncodeResult // receiptdsl.star/StarPrntCommandEncoder.encode|encode(receiptdsl.layout.LaidOutJob;receiptdsl.model.PrinterProfile){}[0]
+}

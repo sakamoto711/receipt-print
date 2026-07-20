@@ -1,0 +1,18 @@
+public final class receiptdsl/star/StarCommandEncoder : receiptdsl/command/CommandEncoder {
+	public fun <init> (Lreceiptdsl/model/CommandSet;)V
+	public fun encode (Lreceiptdsl/layout/LaidOutJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/command/EncodeResult;
+	public fun getSupportedCommandSet ()Lreceiptdsl/model/CommandSet;
+}
+
+public final class receiptdsl/star/StarLineModeCommandEncoder : receiptdsl/command/CommandEncoder {
+	public static final field INSTANCE Lreceiptdsl/star/StarLineModeCommandEncoder;
+	public fun encode (Lreceiptdsl/layout/LaidOutJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/command/EncodeResult;
+	public fun getSupportedCommandSet ()Lreceiptdsl/model/CommandSet;
+}
+
+public final class receiptdsl/star/StarPrntCommandEncoder : receiptdsl/command/CommandEncoder {
+	public static final field INSTANCE Lreceiptdsl/star/StarPrntCommandEncoder;
+	public fun encode (Lreceiptdsl/layout/LaidOutJob;Lreceiptdsl/model/PrinterProfile;)Lreceiptdsl/command/EncodeResult;
+	public fun getSupportedCommandSet ()Lreceiptdsl/model/CommandSet;
+}
+

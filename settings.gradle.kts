@@ -1,6 +1,8 @@
 rootProject.name = "receipt-print"
 
 include(":receipt-core")
+include(":receipt-command-escpos")
+include(":receipt-command-star")
 
 pluginManagement {
     repositories {

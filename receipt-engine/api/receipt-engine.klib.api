@@ -1,0 +1,412 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <receipt-kmp:receipt-engine>
+final enum class receiptdsl.engine/CompatibilityModeDto : kotlin/Enum<receiptdsl.engine/CompatibilityModeDto> { // receiptdsl.engine/CompatibilityModeDto|null[0]
+    enum entry Compatibility // receiptdsl.engine/CompatibilityModeDto.Compatibility|null[0]
+    enum entry Strict // receiptdsl.engine/CompatibilityModeDto.Strict|null[0]
+
+    final val entries // receiptdsl.engine/CompatibilityModeDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/CompatibilityModeDto> // receiptdsl.engine/CompatibilityModeDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/CompatibilityModeDto // receiptdsl.engine/CompatibilityModeDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/CompatibilityModeDto> // receiptdsl.engine/CompatibilityModeDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/CutModeDto : kotlin/Enum<receiptdsl.engine/CutModeDto> { // receiptdsl.engine/CutModeDto|null[0]
+    enum entry Full // receiptdsl.engine/CutModeDto.Full|null[0]
+    enum entry NoMargin // receiptdsl.engine/CutModeDto.NoMargin|null[0]
+    enum entry None // receiptdsl.engine/CutModeDto.None|null[0]
+    enum entry Partial // receiptdsl.engine/CutModeDto.Partial|null[0]
+
+    final val entries // receiptdsl.engine/CutModeDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/CutModeDto> // receiptdsl.engine/CutModeDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/CutModeDto // receiptdsl.engine/CutModeDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/CutModeDto> // receiptdsl.engine/CutModeDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/DiagnosticSeverityDto : kotlin/Enum<receiptdsl.engine/DiagnosticSeverityDto> { // receiptdsl.engine/DiagnosticSeverityDto|null[0]
+    enum entry Error // receiptdsl.engine/DiagnosticSeverityDto.Error|null[0]
+    enum entry Warning // receiptdsl.engine/DiagnosticSeverityDto.Warning|null[0]
+
+    final val entries // receiptdsl.engine/DiagnosticSeverityDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/DiagnosticSeverityDto> // receiptdsl.engine/DiagnosticSeverityDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/DiagnosticSeverityDto // receiptdsl.engine/DiagnosticSeverityDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/DiagnosticSeverityDto> // receiptdsl.engine/DiagnosticSeverityDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/JobActionDto : kotlin/Enum<receiptdsl.engine/JobActionDto> { // receiptdsl.engine/JobActionDto|null[0]
+    enum entry PlaySound // receiptdsl.engine/JobActionDto.PlaySound|null[0]
+
+    final val entries // receiptdsl.engine/JobActionDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/JobActionDto> // receiptdsl.engine/JobActionDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/JobActionDto // receiptdsl.engine/JobActionDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/JobActionDto> // receiptdsl.engine/JobActionDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/PrintDirectionDto : kotlin/Enum<receiptdsl.engine/PrintDirectionDto> { // receiptdsl.engine/PrintDirectionDto|null[0]
+    enum entry Normal // receiptdsl.engine/PrintDirectionDto.Normal|null[0]
+    enum entry Reverse // receiptdsl.engine/PrintDirectionDto.Reverse|null[0]
+
+    final val entries // receiptdsl.engine/PrintDirectionDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/PrintDirectionDto> // receiptdsl.engine/PrintDirectionDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/PrintDirectionDto // receiptdsl.engine/PrintDirectionDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/PrintDirectionDto> // receiptdsl.engine/PrintDirectionDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/PrinterModelDto : kotlin/Enum<receiptdsl.engine/PrinterModelDto> { // receiptdsl.engine/PrinterModelDto|null[0]
+    enum entry EpsonTmM30 // receiptdsl.engine/PrinterModelDto.EpsonTmM30|null[0]
+    enum entry EpsonTmT90Kp // receiptdsl.engine/PrinterModelDto.EpsonTmT90Kp|null[0]
+    enum entry SiiRpF10 // receiptdsl.engine/PrinterModelDto.SiiRpF10|null[0]
+    enum entry StarFvp10 // receiptdsl.engine/PrinterModelDto.StarFvp10|null[0]
+    enum entry StarMcPrint3 // receiptdsl.engine/PrinterModelDto.StarMcPrint3|null[0]
+    enum entry StarTsp650II // receiptdsl.engine/PrinterModelDto.StarTsp650II|null[0]
+
+    final val entries // receiptdsl.engine/PrinterModelDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/PrinterModelDto> // receiptdsl.engine/PrinterModelDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/PrinterModelDto // receiptdsl.engine/PrinterModelDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/PrinterModelDto> // receiptdsl.engine/PrinterModelDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/QrErrorCorrectionDto : kotlin/Enum<receiptdsl.engine/QrErrorCorrectionDto> { // receiptdsl.engine/QrErrorCorrectionDto|null[0]
+    enum entry High // receiptdsl.engine/QrErrorCorrectionDto.High|null[0]
+    enum entry Low // receiptdsl.engine/QrErrorCorrectionDto.Low|null[0]
+    enum entry Medium // receiptdsl.engine/QrErrorCorrectionDto.Medium|null[0]
+    enum entry Quartile // receiptdsl.engine/QrErrorCorrectionDto.Quartile|null[0]
+
+    final val entries // receiptdsl.engine/QrErrorCorrectionDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/QrErrorCorrectionDto> // receiptdsl.engine/QrErrorCorrectionDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/QrErrorCorrectionDto // receiptdsl.engine/QrErrorCorrectionDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/QrErrorCorrectionDto> // receiptdsl.engine/QrErrorCorrectionDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/TextAlignDto : kotlin/Enum<receiptdsl.engine/TextAlignDto> { // receiptdsl.engine/TextAlignDto|null[0]
+    enum entry Center // receiptdsl.engine/TextAlignDto.Center|null[0]
+    enum entry Left // receiptdsl.engine/TextAlignDto.Left|null[0]
+    enum entry Right // receiptdsl.engine/TextAlignDto.Right|null[0]
+
+    final val entries // receiptdsl.engine/TextAlignDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/TextAlignDto> // receiptdsl.engine/TextAlignDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/TextAlignDto // receiptdsl.engine/TextAlignDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/TextAlignDto> // receiptdsl.engine/TextAlignDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/TwoColumnOverflowDto : kotlin/Enum<receiptdsl.engine/TwoColumnOverflowDto> { // receiptdsl.engine/TwoColumnOverflowDto|null[0]
+    enum entry Clip // receiptdsl.engine/TwoColumnOverflowDto.Clip|null[0]
+    enum entry Fail // receiptdsl.engine/TwoColumnOverflowDto.Fail|null[0]
+    enum entry TrailingOnNextLine // receiptdsl.engine/TwoColumnOverflowDto.TrailingOnNextLine|null[0]
+    enum entry WrapLeadingThenTrailing // receiptdsl.engine/TwoColumnOverflowDto.WrapLeadingThenTrailing|null[0]
+
+    final val entries // receiptdsl.engine/TwoColumnOverflowDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/TwoColumnOverflowDto> // receiptdsl.engine/TwoColumnOverflowDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/TwoColumnOverflowDto // receiptdsl.engine/TwoColumnOverflowDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/TwoColumnOverflowDto> // receiptdsl.engine/TwoColumnOverflowDto.values|values#static(){}[0]
+}
+
+final enum class receiptdsl.engine/WrapModeDto : kotlin/Enum<receiptdsl.engine/WrapModeDto> { // receiptdsl.engine/WrapModeDto|null[0]
+    enum entry Character // receiptdsl.engine/WrapModeDto.Character|null[0]
+    enum entry None // receiptdsl.engine/WrapModeDto.None|null[0]
+    enum entry WordOrCharacter // receiptdsl.engine/WrapModeDto.WordOrCharacter|null[0]
+
+    final val entries // receiptdsl.engine/WrapModeDto.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<receiptdsl.engine/WrapModeDto> // receiptdsl.engine/WrapModeDto.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): receiptdsl.engine/WrapModeDto // receiptdsl.engine/WrapModeDto.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<receiptdsl.engine/WrapModeDto> // receiptdsl.engine/WrapModeDto.values|values#static(){}[0]
+}
+
+sealed interface receiptdsl.engine/PrintNodeDto // receiptdsl.engine/PrintNodeDto|null[0]
+
+final class receiptdsl.engine/ColumnDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/ColumnDto|null[0]
+    constructor <init>(receiptdsl.engine/PrintNodeListDto, receiptdsl.engine/TextStyleDto? = ...) // receiptdsl.engine/ColumnDto.<init>|<init>(receiptdsl.engine.PrintNodeListDto;receiptdsl.engine.TextStyleDto?){}[0]
+
+    final val children // receiptdsl.engine/ColumnDto.children|{}children[0]
+        final fun <get-children>(): receiptdsl.engine/PrintNodeListDto // receiptdsl.engine/ColumnDto.children.<get-children>|<get-children>(){}[0]
+    final val style // receiptdsl.engine/ColumnDto.style|{}style[0]
+        final fun <get-style>(): receiptdsl.engine/TextStyleDto? // receiptdsl.engine/ColumnDto.style.<get-style>|<get-style>(){}[0]
+
+    final fun component1(): receiptdsl.engine/PrintNodeListDto // receiptdsl.engine/ColumnDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/TextStyleDto? // receiptdsl.engine/ColumnDto.component2|component2(){}[0]
+    final fun copy(receiptdsl.engine/PrintNodeListDto = ..., receiptdsl.engine/TextStyleDto? = ...): receiptdsl.engine/ColumnDto // receiptdsl.engine/ColumnDto.copy|copy(receiptdsl.engine.PrintNodeListDto;receiptdsl.engine.TextStyleDto?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/ColumnDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/ColumnDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/ColumnDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/CompileResponseDto { // receiptdsl.engine/CompileResponseDto|null[0]
+    final val bytes // receiptdsl.engine/CompileResponseDto.bytes|{}bytes[0]
+        final fun <get-bytes>(): kotlin/ByteArray? // receiptdsl.engine/CompileResponseDto.bytes.<get-bytes>|<get-bytes>(){}[0]
+    final val diagnostics // receiptdsl.engine/CompileResponseDto.diagnostics|{}diagnostics[0]
+        final fun <get-diagnostics>(): kotlin.collections/List<receiptdsl.engine/DiagnosticDto> // receiptdsl.engine/CompileResponseDto.diagnostics.<get-diagnostics>|<get-diagnostics>(){}[0]
+    final val isSuccess // receiptdsl.engine/CompileResponseDto.isSuccess|{}isSuccess[0]
+        final fun <get-isSuccess>(): kotlin/Boolean // receiptdsl.engine/CompileResponseDto.isSuccess.<get-isSuccess>|<get-isSuccess>(){}[0]
+}
+
+final class receiptdsl.engine/DiagnosticDto { // receiptdsl.engine/DiagnosticDto|null[0]
+    constructor <init>(kotlin/String, receiptdsl.engine/DiagnosticSeverityDto, kotlin/String, kotlin/Int?, kotlin.collections/List<kotlin/Int>) // receiptdsl.engine/DiagnosticDto.<init>|<init>(kotlin.String;receiptdsl.engine.DiagnosticSeverityDto;kotlin.String;kotlin.Int?;kotlin.collections.List<kotlin.Int>){}[0]
+
+    final val childIndexes // receiptdsl.engine/DiagnosticDto.childIndexes|{}childIndexes[0]
+        final fun <get-childIndexes>(): kotlin.collections/List<kotlin/Int> // receiptdsl.engine/DiagnosticDto.childIndexes.<get-childIndexes>|<get-childIndexes>(){}[0]
+    final val code // receiptdsl.engine/DiagnosticDto.code|{}code[0]
+        final fun <get-code>(): kotlin/String // receiptdsl.engine/DiagnosticDto.code.<get-code>|<get-code>(){}[0]
+    final val message // receiptdsl.engine/DiagnosticDto.message|{}message[0]
+        final fun <get-message>(): kotlin/String // receiptdsl.engine/DiagnosticDto.message.<get-message>|<get-message>(){}[0]
+    final val severity // receiptdsl.engine/DiagnosticDto.severity|{}severity[0]
+        final fun <get-severity>(): receiptdsl.engine/DiagnosticSeverityDto // receiptdsl.engine/DiagnosticDto.severity.<get-severity>|<get-severity>(){}[0]
+    final val ticketIndex // receiptdsl.engine/DiagnosticDto.ticketIndex|{}ticketIndex[0]
+        final fun <get-ticketIndex>(): kotlin/Int? // receiptdsl.engine/DiagnosticDto.ticketIndex.<get-ticketIndex>|<get-ticketIndex>(){}[0]
+
+    final fun component1(): kotlin/String // receiptdsl.engine/DiagnosticDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/DiagnosticSeverityDto // receiptdsl.engine/DiagnosticDto.component2|component2(){}[0]
+    final fun component3(): kotlin/String // receiptdsl.engine/DiagnosticDto.component3|component3(){}[0]
+    final fun component4(): kotlin/Int? // receiptdsl.engine/DiagnosticDto.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<kotlin/Int> // receiptdsl.engine/DiagnosticDto.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., receiptdsl.engine/DiagnosticSeverityDto = ..., kotlin/String = ..., kotlin/Int? = ..., kotlin.collections/List<kotlin/Int> = ...): receiptdsl.engine/DiagnosticDto // receiptdsl.engine/DiagnosticDto.copy|copy(kotlin.String;receiptdsl.engine.DiagnosticSeverityDto;kotlin.String;kotlin.Int?;kotlin.collections.List<kotlin.Int>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/DiagnosticDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/DiagnosticDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/DiagnosticDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/FeedDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/FeedDto|null[0]
+    constructor <init>(kotlin/Int = ...) // receiptdsl.engine/FeedDto.<init>|<init>(kotlin.Int){}[0]
+
+    final val lines // receiptdsl.engine/FeedDto.lines|{}lines[0]
+        final fun <get-lines>(): kotlin/Int // receiptdsl.engine/FeedDto.lines.<get-lines>|<get-lines>(){}[0]
+
+    final fun component1(): kotlin/Int // receiptdsl.engine/FeedDto.component1|component1(){}[0]
+    final fun copy(kotlin/Int = ...): receiptdsl.engine/FeedDto // receiptdsl.engine/FeedDto.copy|copy(kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/FeedDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/FeedDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/FeedDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/PreviewResponseDto { // receiptdsl.engine/PreviewResponseDto|null[0]
+    constructor <init>(kotlin/String?, kotlin.collections/List<receiptdsl.engine/DiagnosticDto>) // receiptdsl.engine/PreviewResponseDto.<init>|<init>(kotlin.String?;kotlin.collections.List<receiptdsl.engine.DiagnosticDto>){}[0]
+
+    final val diagnostics // receiptdsl.engine/PreviewResponseDto.diagnostics|{}diagnostics[0]
+        final fun <get-diagnostics>(): kotlin.collections/List<receiptdsl.engine/DiagnosticDto> // receiptdsl.engine/PreviewResponseDto.diagnostics.<get-diagnostics>|<get-diagnostics>(){}[0]
+    final val isSuccess // receiptdsl.engine/PreviewResponseDto.isSuccess|{}isSuccess[0]
+        final fun <get-isSuccess>(): kotlin/Boolean // receiptdsl.engine/PreviewResponseDto.isSuccess.<get-isSuccess>|<get-isSuccess>(){}[0]
+    final val receiptLine // receiptdsl.engine/PreviewResponseDto.receiptLine|{}receiptLine[0]
+        final fun <get-receiptLine>(): kotlin/String? // receiptdsl.engine/PreviewResponseDto.receiptLine.<get-receiptLine>|<get-receiptLine>(){}[0]
+
+    final fun component1(): kotlin/String? // receiptdsl.engine/PreviewResponseDto.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<receiptdsl.engine/DiagnosticDto> // receiptdsl.engine/PreviewResponseDto.component2|component2(){}[0]
+    final fun copy(kotlin/String? = ..., kotlin.collections/List<receiptdsl.engine/DiagnosticDto> = ...): receiptdsl.engine/PreviewResponseDto // receiptdsl.engine/PreviewResponseDto.copy|copy(kotlin.String?;kotlin.collections.List<receiptdsl.engine.DiagnosticDto>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/PreviewResponseDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/PreviewResponseDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/PreviewResponseDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/PrintJobDto { // receiptdsl.engine/PrintJobDto|null[0]
+    constructor <init>(kotlin.collections/List<receiptdsl.engine/TicketDto>, receiptdsl.engine/PrintDirectionDto = ..., kotlin.collections/List<receiptdsl.engine/JobActionDto> = ...) // receiptdsl.engine/PrintJobDto.<init>|<init>(kotlin.collections.List<receiptdsl.engine.TicketDto>;receiptdsl.engine.PrintDirectionDto;kotlin.collections.List<receiptdsl.engine.JobActionDto>){}[0]
+
+    final val direction // receiptdsl.engine/PrintJobDto.direction|{}direction[0]
+        final fun <get-direction>(): receiptdsl.engine/PrintDirectionDto // receiptdsl.engine/PrintJobDto.direction.<get-direction>|<get-direction>(){}[0]
+    final val startActions // receiptdsl.engine/PrintJobDto.startActions|{}startActions[0]
+        final fun <get-startActions>(): kotlin.collections/List<receiptdsl.engine/JobActionDto> // receiptdsl.engine/PrintJobDto.startActions.<get-startActions>|<get-startActions>(){}[0]
+    final val tickets // receiptdsl.engine/PrintJobDto.tickets|{}tickets[0]
+        final fun <get-tickets>(): kotlin.collections/List<receiptdsl.engine/TicketDto> // receiptdsl.engine/PrintJobDto.tickets.<get-tickets>|<get-tickets>(){}[0]
+
+    final fun component1(): kotlin.collections/List<receiptdsl.engine/TicketDto> // receiptdsl.engine/PrintJobDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/PrintDirectionDto // receiptdsl.engine/PrintJobDto.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<receiptdsl.engine/JobActionDto> // receiptdsl.engine/PrintJobDto.component3|component3(){}[0]
+    final fun copy(kotlin.collections/List<receiptdsl.engine/TicketDto> = ..., receiptdsl.engine/PrintDirectionDto = ..., kotlin.collections/List<receiptdsl.engine/JobActionDto> = ...): receiptdsl.engine/PrintJobDto // receiptdsl.engine/PrintJobDto.copy|copy(kotlin.collections.List<receiptdsl.engine.TicketDto>;receiptdsl.engine.PrintDirectionDto;kotlin.collections.List<receiptdsl.engine.JobActionDto>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/PrintJobDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/PrintJobDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/PrintJobDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/PrinterProfileDto { // receiptdsl.engine/PrinterProfileDto|null[0]
+    constructor <init>(receiptdsl.engine/PrinterModelDto, kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ...) // receiptdsl.engine/PrinterProfileDto.<init>|<init>(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean){}[0]
+
+    final val columnsPerLine // receiptdsl.engine/PrinterProfileDto.columnsPerLine|{}columnsPerLine[0]
+        final fun <get-columnsPerLine>(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.columnsPerLine.<get-columnsPerLine>|<get-columnsPerLine>(){}[0]
+    final val compatibilityMode // receiptdsl.engine/PrinterProfileDto.compatibilityMode|{}compatibilityMode[0]
+        final fun <get-compatibilityMode>(): receiptdsl.engine/CompatibilityModeDto // receiptdsl.engine/PrinterProfileDto.compatibilityMode.<get-compatibilityMode>|<get-compatibilityMode>(){}[0]
+    final val model // receiptdsl.engine/PrinterProfileDto.model|{}model[0]
+        final fun <get-model>(): receiptdsl.engine/PrinterModelDto // receiptdsl.engine/PrinterProfileDto.model.<get-model>|<get-model>(){}[0]
+    final val soundEnabled // receiptdsl.engine/PrinterProfileDto.soundEnabled|{}soundEnabled[0]
+        final fun <get-soundEnabled>(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.soundEnabled.<get-soundEnabled>|<get-soundEnabled>(){}[0]
+
+    final fun component1(): receiptdsl.engine/PrinterModelDto // receiptdsl.engine/PrinterProfileDto.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.component2|component2(){}[0]
+    final fun component3(): receiptdsl.engine/CompatibilityModeDto // receiptdsl.engine/PrinterProfileDto.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.component4|component4(){}[0]
+    final fun copy(receiptdsl.engine/PrinterModelDto = ..., kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ...): receiptdsl.engine/PrinterProfileDto // receiptdsl.engine/PrinterProfileDto.copy|copy(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/PrinterProfileDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/QrCodeDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/QrCodeDto|null[0]
+    constructor <init>(kotlin/String, kotlin/Int = ..., receiptdsl.engine/QrErrorCorrectionDto = ..., receiptdsl.engine/TextAlignDto = ...) // receiptdsl.engine/QrCodeDto.<init>|<init>(kotlin.String;kotlin.Int;receiptdsl.engine.QrErrorCorrectionDto;receiptdsl.engine.TextAlignDto){}[0]
+
+    final val align // receiptdsl.engine/QrCodeDto.align|{}align[0]
+        final fun <get-align>(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/QrCodeDto.align.<get-align>|<get-align>(){}[0]
+    final val cellSize // receiptdsl.engine/QrCodeDto.cellSize|{}cellSize[0]
+        final fun <get-cellSize>(): kotlin/Int // receiptdsl.engine/QrCodeDto.cellSize.<get-cellSize>|<get-cellSize>(){}[0]
+    final val data // receiptdsl.engine/QrCodeDto.data|{}data[0]
+        final fun <get-data>(): kotlin/String // receiptdsl.engine/QrCodeDto.data.<get-data>|<get-data>(){}[0]
+    final val errorCorrection // receiptdsl.engine/QrCodeDto.errorCorrection|{}errorCorrection[0]
+        final fun <get-errorCorrection>(): receiptdsl.engine/QrErrorCorrectionDto // receiptdsl.engine/QrCodeDto.errorCorrection.<get-errorCorrection>|<get-errorCorrection>(){}[0]
+
+    final fun component1(): kotlin/String // receiptdsl.engine/QrCodeDto.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // receiptdsl.engine/QrCodeDto.component2|component2(){}[0]
+    final fun component3(): receiptdsl.engine/QrErrorCorrectionDto // receiptdsl.engine/QrCodeDto.component3|component3(){}[0]
+    final fun component4(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/QrCodeDto.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Int = ..., receiptdsl.engine/QrErrorCorrectionDto = ..., receiptdsl.engine/TextAlignDto = ...): receiptdsl.engine/QrCodeDto // receiptdsl.engine/QrCodeDto.copy|copy(kotlin.String;kotlin.Int;receiptdsl.engine.QrErrorCorrectionDto;receiptdsl.engine.TextAlignDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/QrCodeDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/QrCodeDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/QrCodeDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/ReceiptEngine { // receiptdsl.engine/ReceiptEngine|null[0]
+    constructor <init>() // receiptdsl.engine/ReceiptEngine.<init>|<init>(){}[0]
+
+    final fun compile(receiptdsl.engine/PrintJobDto, receiptdsl.engine/PrinterProfileDto): receiptdsl.engine/CompileResponseDto // receiptdsl.engine/ReceiptEngine.compile|compile(receiptdsl.engine.PrintJobDto;receiptdsl.engine.PrinterProfileDto){}[0]
+    final fun preview(receiptdsl.engine/PrintJobDto, receiptdsl.engine/PrinterProfileDto): receiptdsl.engine/PreviewResponseDto // receiptdsl.engine/ReceiptEngine.preview|preview(receiptdsl.engine.PrintJobDto;receiptdsl.engine.PrinterProfileDto){}[0]
+}
+
+final class receiptdsl.engine/RuleDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/RuleDto|null[0]
+    constructor <init>(kotlin/Int = ...) // receiptdsl.engine/RuleDto.<init>|<init>(kotlin.Int){}[0]
+
+    final val thickness // receiptdsl.engine/RuleDto.thickness|{}thickness[0]
+        final fun <get-thickness>(): kotlin/Int // receiptdsl.engine/RuleDto.thickness.<get-thickness>|<get-thickness>(){}[0]
+
+    final fun component1(): kotlin/Int // receiptdsl.engine/RuleDto.component1|component1(){}[0]
+    final fun copy(kotlin/Int = ...): receiptdsl.engine/RuleDto // receiptdsl.engine/RuleDto.copy|copy(kotlin.Int){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/RuleDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/RuleDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/RuleDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/TextDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/TextDto|null[0]
+    constructor <init>(kotlin/String, receiptdsl.engine/TextStyleDto = ..., receiptdsl.engine/WrapModeDto = ..., kotlin/Boolean = ...) // receiptdsl.engine/TextDto.<init>|<init>(kotlin.String;receiptdsl.engine.TextStyleDto;receiptdsl.engine.WrapModeDto;kotlin.Boolean){}[0]
+
+    final val preserveNewLines // receiptdsl.engine/TextDto.preserveNewLines|{}preserveNewLines[0]
+        final fun <get-preserveNewLines>(): kotlin/Boolean // receiptdsl.engine/TextDto.preserveNewLines.<get-preserveNewLines>|<get-preserveNewLines>(){}[0]
+    final val style // receiptdsl.engine/TextDto.style|{}style[0]
+        final fun <get-style>(): receiptdsl.engine/TextStyleDto // receiptdsl.engine/TextDto.style.<get-style>|<get-style>(){}[0]
+    final val value // receiptdsl.engine/TextDto.value|{}value[0]
+        final fun <get-value>(): kotlin/String // receiptdsl.engine/TextDto.value.<get-value>|<get-value>(){}[0]
+    final val wrap // receiptdsl.engine/TextDto.wrap|{}wrap[0]
+        final fun <get-wrap>(): receiptdsl.engine/WrapModeDto // receiptdsl.engine/TextDto.wrap.<get-wrap>|<get-wrap>(){}[0]
+
+    final fun component1(): kotlin/String // receiptdsl.engine/TextDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/TextStyleDto // receiptdsl.engine/TextDto.component2|component2(){}[0]
+    final fun component3(): receiptdsl.engine/WrapModeDto // receiptdsl.engine/TextDto.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // receiptdsl.engine/TextDto.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., receiptdsl.engine/TextStyleDto = ..., receiptdsl.engine/WrapModeDto = ..., kotlin/Boolean = ...): receiptdsl.engine/TextDto // receiptdsl.engine/TextDto.copy|copy(kotlin.String;receiptdsl.engine.TextStyleDto;receiptdsl.engine.WrapModeDto;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/TextDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/TextDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/TextDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/TextRunDto { // receiptdsl.engine/TextRunDto|null[0]
+    constructor <init>(kotlin/String, receiptdsl.engine/TextStyleDto = ...) // receiptdsl.engine/TextRunDto.<init>|<init>(kotlin.String;receiptdsl.engine.TextStyleDto){}[0]
+
+    final val style // receiptdsl.engine/TextRunDto.style|{}style[0]
+        final fun <get-style>(): receiptdsl.engine/TextStyleDto // receiptdsl.engine/TextRunDto.style.<get-style>|<get-style>(){}[0]
+    final val value // receiptdsl.engine/TextRunDto.value|{}value[0]
+        final fun <get-value>(): kotlin/String // receiptdsl.engine/TextRunDto.value.<get-value>|<get-value>(){}[0]
+
+    final fun component1(): kotlin/String // receiptdsl.engine/TextRunDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/TextStyleDto // receiptdsl.engine/TextRunDto.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., receiptdsl.engine/TextStyleDto = ...): receiptdsl.engine/TextRunDto // receiptdsl.engine/TextRunDto.copy|copy(kotlin.String;receiptdsl.engine.TextStyleDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/TextRunDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/TextRunDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/TextRunDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/TextStyleDto { // receiptdsl.engine/TextStyleDto|null[0]
+    constructor <init>(kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., receiptdsl.engine/TextAlignDto = ...) // receiptdsl.engine/TextStyleDto.<init>|<init>(kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Boolean;receiptdsl.engine.TextAlignDto){}[0]
+
+    final val align // receiptdsl.engine/TextStyleDto.align|{}align[0]
+        final fun <get-align>(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/TextStyleDto.align.<get-align>|<get-align>(){}[0]
+    final val emphasized // receiptdsl.engine/TextStyleDto.emphasized|{}emphasized[0]
+        final fun <get-emphasized>(): kotlin/Boolean // receiptdsl.engine/TextStyleDto.emphasized.<get-emphasized>|<get-emphasized>(){}[0]
+    final val heightScale // receiptdsl.engine/TextStyleDto.heightScale|{}heightScale[0]
+        final fun <get-heightScale>(): kotlin/Int // receiptdsl.engine/TextStyleDto.heightScale.<get-heightScale>|<get-heightScale>(){}[0]
+    final val inverted // receiptdsl.engine/TextStyleDto.inverted|{}inverted[0]
+        final fun <get-inverted>(): kotlin/Boolean // receiptdsl.engine/TextStyleDto.inverted.<get-inverted>|<get-inverted>(){}[0]
+    final val widthScale // receiptdsl.engine/TextStyleDto.widthScale|{}widthScale[0]
+        final fun <get-widthScale>(): kotlin/Int // receiptdsl.engine/TextStyleDto.widthScale.<get-widthScale>|<get-widthScale>(){}[0]
+
+    final fun component1(): kotlin/Int // receiptdsl.engine/TextStyleDto.component1|component1(){}[0]
+    final fun component2(): kotlin/Int // receiptdsl.engine/TextStyleDto.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // receiptdsl.engine/TextStyleDto.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // receiptdsl.engine/TextStyleDto.component4|component4(){}[0]
+    final fun component5(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/TextStyleDto.component5|component5(){}[0]
+    final fun copy(kotlin/Int = ..., kotlin/Int = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., receiptdsl.engine/TextAlignDto = ...): receiptdsl.engine/TextStyleDto // receiptdsl.engine/TextStyleDto.copy|copy(kotlin.Int;kotlin.Int;kotlin.Boolean;kotlin.Boolean;receiptdsl.engine.TextAlignDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/TextStyleDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/TextStyleDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/TextStyleDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/TicketDto { // receiptdsl.engine/TicketDto|null[0]
+    constructor <init>(receiptdsl.engine/PrintNodeListDto, receiptdsl.engine/CutModeDto = ...) // receiptdsl.engine/TicketDto.<init>|<init>(receiptdsl.engine.PrintNodeListDto;receiptdsl.engine.CutModeDto){}[0]
+
+    final val children // receiptdsl.engine/TicketDto.children|{}children[0]
+        final fun <get-children>(): receiptdsl.engine/PrintNodeListDto // receiptdsl.engine/TicketDto.children.<get-children>|<get-children>(){}[0]
+    final val cut // receiptdsl.engine/TicketDto.cut|{}cut[0]
+        final fun <get-cut>(): receiptdsl.engine/CutModeDto // receiptdsl.engine/TicketDto.cut.<get-cut>|<get-cut>(){}[0]
+
+    final fun component1(): receiptdsl.engine/PrintNodeListDto // receiptdsl.engine/TicketDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/CutModeDto // receiptdsl.engine/TicketDto.component2|component2(){}[0]
+    final fun copy(receiptdsl.engine/PrintNodeListDto = ..., receiptdsl.engine/CutModeDto = ...): receiptdsl.engine/TicketDto // receiptdsl.engine/TicketDto.copy|copy(receiptdsl.engine.PrintNodeListDto;receiptdsl.engine.CutModeDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/TicketDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/TicketDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/TicketDto.toString|toString(){}[0]
+}
+
+final class receiptdsl.engine/TwoColumnDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/TwoColumnDto|null[0]
+    constructor <init>(receiptdsl.engine/TextRunDto, receiptdsl.engine/TextRunDto? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., receiptdsl.engine/TwoColumnOverflowDto = ...) // receiptdsl.engine/TwoColumnDto.<init>|<init>(receiptdsl.engine.TextRunDto;receiptdsl.engine.TextRunDto?;kotlin.Int?;kotlin.Int?;kotlin.Int?;receiptdsl.engine.TwoColumnOverflowDto){}[0]
+
+    final val leading // receiptdsl.engine/TwoColumnDto.leading|{}leading[0]
+        final fun <get-leading>(): receiptdsl.engine/TextRunDto // receiptdsl.engine/TwoColumnDto.leading.<get-leading>|<get-leading>(){}[0]
+    final val leadingReservedColumns // receiptdsl.engine/TwoColumnDto.leadingReservedColumns|{}leadingReservedColumns[0]
+        final fun <get-leadingReservedColumns>(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.leadingReservedColumns.<get-leadingReservedColumns>|<get-leadingReservedColumns>(){}[0]
+    final val overflow // receiptdsl.engine/TwoColumnDto.overflow|{}overflow[0]
+        final fun <get-overflow>(): receiptdsl.engine/TwoColumnOverflowDto // receiptdsl.engine/TwoColumnDto.overflow.<get-overflow>|<get-overflow>(){}[0]
+    final val trailing // receiptdsl.engine/TwoColumnDto.trailing|{}trailing[0]
+        final fun <get-trailing>(): receiptdsl.engine/TextRunDto? // receiptdsl.engine/TwoColumnDto.trailing.<get-trailing>|<get-trailing>(){}[0]
+    final val trailingReservedColumns // receiptdsl.engine/TwoColumnDto.trailingReservedColumns|{}trailingReservedColumns[0]
+        final fun <get-trailingReservedColumns>(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.trailingReservedColumns.<get-trailingReservedColumns>|<get-trailingReservedColumns>(){}[0]
+    final val widthColumns // receiptdsl.engine/TwoColumnDto.widthColumns|{}widthColumns[0]
+        final fun <get-widthColumns>(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.widthColumns.<get-widthColumns>|<get-widthColumns>(){}[0]
+
+    final fun component1(): receiptdsl.engine/TextRunDto // receiptdsl.engine/TwoColumnDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/TextRunDto? // receiptdsl.engine/TwoColumnDto.component2|component2(){}[0]
+    final fun component3(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.component3|component3(){}[0]
+    final fun component4(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.component4|component4(){}[0]
+    final fun component5(): kotlin/Int? // receiptdsl.engine/TwoColumnDto.component5|component5(){}[0]
+    final fun component6(): receiptdsl.engine/TwoColumnOverflowDto // receiptdsl.engine/TwoColumnDto.component6|component6(){}[0]
+    final fun copy(receiptdsl.engine/TextRunDto = ..., receiptdsl.engine/TextRunDto? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/Int? = ..., receiptdsl.engine/TwoColumnOverflowDto = ...): receiptdsl.engine/TwoColumnDto // receiptdsl.engine/TwoColumnDto.copy|copy(receiptdsl.engine.TextRunDto;receiptdsl.engine.TextRunDto?;kotlin.Int?;kotlin.Int?;kotlin.Int?;receiptdsl.engine.TwoColumnOverflowDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/TwoColumnDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/TwoColumnDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/TwoColumnDto.toString|toString(){}[0]
+}
+
+final value class receiptdsl.engine/PrintNodeListDto { // receiptdsl.engine/PrintNodeListDto|null[0]
+    constructor <init>(kotlin.collections/List<receiptdsl.engine/PrintNodeDto>) // receiptdsl.engine/PrintNodeListDto.<init>|<init>(kotlin.collections.List<receiptdsl.engine.PrintNodeDto>){}[0]
+
+    final val nodes // receiptdsl.engine/PrintNodeListDto.nodes|{}nodes[0]
+        final fun <get-nodes>(): kotlin.collections/List<receiptdsl.engine/PrintNodeDto> // receiptdsl.engine/PrintNodeListDto.nodes.<get-nodes>|<get-nodes>(){}[0]
+
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/PrintNodeListDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/PrintNodeListDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/PrintNodeListDto.toString|toString(){}[0]
+}

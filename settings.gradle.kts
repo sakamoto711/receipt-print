@@ -4,6 +4,8 @@ include(":receipt-core")
 include(":receipt-command-escpos")
 include(":receipt-command-star")
 include(":receipt-receiptline")
+include(":receipt-engine")
+include(":samples:kotlinApp")
 
 pluginManagement {
     repositories {

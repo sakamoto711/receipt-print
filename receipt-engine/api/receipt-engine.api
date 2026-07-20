@@ -1,0 +1,334 @@
+public final class receiptdsl/engine/ColumnDto : receiptdsl/engine/PrintNodeDto {
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/TextStyleDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/TextStyleDto;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-X_8kg30 ()Ljava/util/List;
+	public final fun component2 ()Lreceiptdsl/engine/TextStyleDto;
+	public final fun copy-4PFoJso (Ljava/util/List;Lreceiptdsl/engine/TextStyleDto;)Lreceiptdsl/engine/ColumnDto;
+	public static synthetic fun copy-4PFoJso$default (Lreceiptdsl/engine/ColumnDto;Ljava/util/List;Lreceiptdsl/engine/TextStyleDto;ILjava/lang/Object;)Lreceiptdsl/engine/ColumnDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChildren-X_8kg30 ()Ljava/util/List;
+	public final fun getStyle ()Lreceiptdsl/engine/TextStyleDto;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/CompatibilityModeDto : java/lang/Enum {
+	public static final field Compatibility Lreceiptdsl/engine/CompatibilityModeDto;
+	public static final field Strict Lreceiptdsl/engine/CompatibilityModeDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/CompatibilityModeDto;
+	public static fun values ()[Lreceiptdsl/engine/CompatibilityModeDto;
+}
+
+public final class receiptdsl/engine/CompileResponseDto {
+	public final fun getBytes ()[B
+	public final fun getDiagnostics ()Ljava/util/List;
+	public final fun isSuccess ()Z
+}
+
+public final class receiptdsl/engine/CutModeDto : java/lang/Enum {
+	public static final field Full Lreceiptdsl/engine/CutModeDto;
+	public static final field NoMargin Lreceiptdsl/engine/CutModeDto;
+	public static final field None Lreceiptdsl/engine/CutModeDto;
+	public static final field Partial Lreceiptdsl/engine/CutModeDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/CutModeDto;
+	public static fun values ()[Lreceiptdsl/engine/CutModeDto;
+}
+
+public final class receiptdsl/engine/DiagnosticDto {
+	public fun <init> (Ljava/lang/String;Lreceiptdsl/engine/DiagnosticSeverityDto;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lreceiptdsl/engine/DiagnosticSeverityDto;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Lreceiptdsl/engine/DiagnosticSeverityDto;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;)Lreceiptdsl/engine/DiagnosticDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/DiagnosticDto;Ljava/lang/String;Lreceiptdsl/engine/DiagnosticSeverityDto;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;ILjava/lang/Object;)Lreceiptdsl/engine/DiagnosticDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChildIndexes ()Ljava/util/List;
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getSeverity ()Lreceiptdsl/engine/DiagnosticSeverityDto;
+	public final fun getTicketIndex ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/DiagnosticSeverityDto : java/lang/Enum {
+	public static final field Error Lreceiptdsl/engine/DiagnosticSeverityDto;
+	public static final field Warning Lreceiptdsl/engine/DiagnosticSeverityDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/DiagnosticSeverityDto;
+	public static fun values ()[Lreceiptdsl/engine/DiagnosticSeverityDto;
+}
+
+public final class receiptdsl/engine/FeedDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun copy (I)Lreceiptdsl/engine/FeedDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/FeedDto;IILjava/lang/Object;)Lreceiptdsl/engine/FeedDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLines ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/JobActionDto : java/lang/Enum {
+	public static final field PlaySound Lreceiptdsl/engine/JobActionDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/JobActionDto;
+	public static fun values ()[Lreceiptdsl/engine/JobActionDto;
+}
+
+public final class receiptdsl/engine/PreviewResponseDto {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lreceiptdsl/engine/PreviewResponseDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/PreviewResponseDto;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lreceiptdsl/engine/PreviewResponseDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDiagnostics ()Ljava/util/List;
+	public final fun getReceiptLine ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isSuccess ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/PrintDirectionDto : java/lang/Enum {
+	public static final field Normal Lreceiptdsl/engine/PrintDirectionDto;
+	public static final field Reverse Lreceiptdsl/engine/PrintDirectionDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/PrintDirectionDto;
+	public static fun values ()[Lreceiptdsl/engine/PrintDirectionDto;
+}
+
+public final class receiptdsl/engine/PrintJobDto {
+	public fun <init> (Ljava/util/List;Lreceiptdsl/engine/PrintDirectionDto;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/PrintDirectionDto;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Lreceiptdsl/engine/PrintDirectionDto;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;Lreceiptdsl/engine/PrintDirectionDto;Ljava/util/List;)Lreceiptdsl/engine/PrintJobDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/PrintJobDto;Ljava/util/List;Lreceiptdsl/engine/PrintDirectionDto;Ljava/util/List;ILjava/lang/Object;)Lreceiptdsl/engine/PrintJobDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDirection ()Lreceiptdsl/engine/PrintDirectionDto;
+	public final fun getStartActions ()Ljava/util/List;
+	public final fun getTickets ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class receiptdsl/engine/PrintNodeDto {
+}
+
+public final class receiptdsl/engine/PrintNodeListDto {
+	public static final synthetic fun box-impl (Ljava/util/List;)Lreceiptdsl/engine/PrintNodeListDto;
+	public static fun constructor-impl (Ljava/util/List;)Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/util/List;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/util/List;Ljava/util/List;)Z
+	public final fun getNodes ()Ljava/util/List;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/util/List;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/util/List;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/util/List;
+}
+
+public final class receiptdsl/engine/PrinterModelDto : java/lang/Enum {
+	public static final field EpsonTmM30 Lreceiptdsl/engine/PrinterModelDto;
+	public static final field EpsonTmT90Kp Lreceiptdsl/engine/PrinterModelDto;
+	public static final field SiiRpF10 Lreceiptdsl/engine/PrinterModelDto;
+	public static final field StarFvp10 Lreceiptdsl/engine/PrinterModelDto;
+	public static final field StarMcPrint3 Lreceiptdsl/engine/PrinterModelDto;
+	public static final field StarTsp650II Lreceiptdsl/engine/PrinterModelDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/PrinterModelDto;
+	public static fun values ()[Lreceiptdsl/engine/PrinterModelDto;
+}
+
+public final class receiptdsl/engine/PrinterProfileDto {
+	public fun <init> (Lreceiptdsl/engine/PrinterModelDto;ILreceiptdsl/engine/CompatibilityModeDto;Z)V
+	public synthetic fun <init> (Lreceiptdsl/engine/PrinterModelDto;ILreceiptdsl/engine/CompatibilityModeDto;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lreceiptdsl/engine/PrinterModelDto;
+	public final fun component2 ()I
+	public final fun component3 ()Lreceiptdsl/engine/CompatibilityModeDto;
+	public final fun component4 ()Z
+	public final fun copy (Lreceiptdsl/engine/PrinterModelDto;ILreceiptdsl/engine/CompatibilityModeDto;Z)Lreceiptdsl/engine/PrinterProfileDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/PrinterProfileDto;Lreceiptdsl/engine/PrinterModelDto;ILreceiptdsl/engine/CompatibilityModeDto;ZILjava/lang/Object;)Lreceiptdsl/engine/PrinterProfileDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColumnsPerLine ()I
+	public final fun getCompatibilityMode ()Lreceiptdsl/engine/CompatibilityModeDto;
+	public final fun getModel ()Lreceiptdsl/engine/PrinterModelDto;
+	public final fun getSoundEnabled ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/QrCodeDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> (Ljava/lang/String;ILreceiptdsl/engine/QrErrorCorrectionDto;Lreceiptdsl/engine/TextAlignDto;)V
+	public synthetic fun <init> (Ljava/lang/String;ILreceiptdsl/engine/QrErrorCorrectionDto;Lreceiptdsl/engine/TextAlignDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public final fun component3 ()Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public final fun component4 ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun copy (Ljava/lang/String;ILreceiptdsl/engine/QrErrorCorrectionDto;Lreceiptdsl/engine/TextAlignDto;)Lreceiptdsl/engine/QrCodeDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/QrCodeDto;Ljava/lang/String;ILreceiptdsl/engine/QrErrorCorrectionDto;Lreceiptdsl/engine/TextAlignDto;ILjava/lang/Object;)Lreceiptdsl/engine/QrCodeDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlign ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun getCellSize ()I
+	public final fun getData ()Ljava/lang/String;
+	public final fun getErrorCorrection ()Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/QrErrorCorrectionDto : java/lang/Enum {
+	public static final field High Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public static final field Low Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public static final field Medium Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public static final field Quartile Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/QrErrorCorrectionDto;
+	public static fun values ()[Lreceiptdsl/engine/QrErrorCorrectionDto;
+}
+
+public final class receiptdsl/engine/ReceiptEngine {
+	public fun <init> ()V
+	public final fun compile (Lreceiptdsl/engine/PrintJobDto;Lreceiptdsl/engine/PrinterProfileDto;)Lreceiptdsl/engine/CompileResponseDto;
+	public final fun preview (Lreceiptdsl/engine/PrintJobDto;Lreceiptdsl/engine/PrinterProfileDto;)Lreceiptdsl/engine/PreviewResponseDto;
+}
+
+public final class receiptdsl/engine/RuleDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> ()V
+	public fun <init> (I)V
+	public synthetic fun <init> (IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun copy (I)Lreceiptdsl/engine/RuleDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/RuleDto;IILjava/lang/Object;)Lreceiptdsl/engine/RuleDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getThickness ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TextAlignDto : java/lang/Enum {
+	public static final field Center Lreceiptdsl/engine/TextAlignDto;
+	public static final field Left Lreceiptdsl/engine/TextAlignDto;
+	public static final field Right Lreceiptdsl/engine/TextAlignDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/TextAlignDto;
+	public static fun values ()[Lreceiptdsl/engine/TextAlignDto;
+}
+
+public final class receiptdsl/engine/TextDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;Lreceiptdsl/engine/WrapModeDto;Z)V
+	public synthetic fun <init> (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;Lreceiptdsl/engine/WrapModeDto;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lreceiptdsl/engine/TextStyleDto;
+	public final fun component3 ()Lreceiptdsl/engine/WrapModeDto;
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;Lreceiptdsl/engine/WrapModeDto;Z)Lreceiptdsl/engine/TextDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/TextDto;Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;Lreceiptdsl/engine/WrapModeDto;ZILjava/lang/Object;)Lreceiptdsl/engine/TextDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPreserveNewLines ()Z
+	public final fun getStyle ()Lreceiptdsl/engine/TextStyleDto;
+	public final fun getValue ()Ljava/lang/String;
+	public final fun getWrap ()Lreceiptdsl/engine/WrapModeDto;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TextRunDto {
+	public fun <init> (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;)V
+	public synthetic fun <init> (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lreceiptdsl/engine/TextStyleDto;
+	public final fun copy (Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;)Lreceiptdsl/engine/TextRunDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/TextRunDto;Ljava/lang/String;Lreceiptdsl/engine/TextStyleDto;ILjava/lang/Object;)Lreceiptdsl/engine/TextRunDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lreceiptdsl/engine/TextStyleDto;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TextStyleDto {
+	public fun <init> ()V
+	public fun <init> (IIZZLreceiptdsl/engine/TextAlignDto;)V
+	public synthetic fun <init> (IIZZLreceiptdsl/engine/TextAlignDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()I
+	public final fun component2 ()I
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun copy (IIZZLreceiptdsl/engine/TextAlignDto;)Lreceiptdsl/engine/TextStyleDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/TextStyleDto;IIZZLreceiptdsl/engine/TextAlignDto;ILjava/lang/Object;)Lreceiptdsl/engine/TextStyleDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlign ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun getEmphasized ()Z
+	public final fun getHeightScale ()I
+	public final fun getInverted ()Z
+	public final fun getWidthScale ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TicketDto {
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/CutModeDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/CutModeDto;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-X_8kg30 ()Ljava/util/List;
+	public final fun component2 ()Lreceiptdsl/engine/CutModeDto;
+	public final fun copy-4PFoJso (Ljava/util/List;Lreceiptdsl/engine/CutModeDto;)Lreceiptdsl/engine/TicketDto;
+	public static synthetic fun copy-4PFoJso$default (Lreceiptdsl/engine/TicketDto;Ljava/util/List;Lreceiptdsl/engine/CutModeDto;ILjava/lang/Object;)Lreceiptdsl/engine/TicketDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChildren-X_8kg30 ()Ljava/util/List;
+	public final fun getCut ()Lreceiptdsl/engine/CutModeDto;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TwoColumnDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> (Lreceiptdsl/engine/TextRunDto;Lreceiptdsl/engine/TextRunDto;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lreceiptdsl/engine/TwoColumnOverflowDto;)V
+	public synthetic fun <init> (Lreceiptdsl/engine/TextRunDto;Lreceiptdsl/engine/TextRunDto;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lreceiptdsl/engine/TwoColumnOverflowDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lreceiptdsl/engine/TextRunDto;
+	public final fun component2 ()Lreceiptdsl/engine/TextRunDto;
+	public final fun component3 ()Ljava/lang/Integer;
+	public final fun component4 ()Ljava/lang/Integer;
+	public final fun component5 ()Ljava/lang/Integer;
+	public final fun component6 ()Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public final fun copy (Lreceiptdsl/engine/TextRunDto;Lreceiptdsl/engine/TextRunDto;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lreceiptdsl/engine/TwoColumnOverflowDto;)Lreceiptdsl/engine/TwoColumnDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/TwoColumnDto;Lreceiptdsl/engine/TextRunDto;Lreceiptdsl/engine/TextRunDto;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/Integer;Lreceiptdsl/engine/TwoColumnOverflowDto;ILjava/lang/Object;)Lreceiptdsl/engine/TwoColumnDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeading ()Lreceiptdsl/engine/TextRunDto;
+	public final fun getLeadingReservedColumns ()Ljava/lang/Integer;
+	public final fun getOverflow ()Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public final fun getTrailing ()Lreceiptdsl/engine/TextRunDto;
+	public final fun getTrailingReservedColumns ()Ljava/lang/Integer;
+	public final fun getWidthColumns ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class receiptdsl/engine/TwoColumnOverflowDto : java/lang/Enum {
+	public static final field Clip Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public static final field Fail Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public static final field TrailingOnNextLine Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public static final field WrapLeadingThenTrailing Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/TwoColumnOverflowDto;
+	public static fun values ()[Lreceiptdsl/engine/TwoColumnOverflowDto;
+}
+
+public final class receiptdsl/engine/WrapModeDto : java/lang/Enum {
+	public static final field Character Lreceiptdsl/engine/WrapModeDto;
+	public static final field None Lreceiptdsl/engine/WrapModeDto;
+	public static final field WordOrCharacter Lreceiptdsl/engine/WrapModeDto;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lreceiptdsl/engine/WrapModeDto;
+	public static fun values ()[Lreceiptdsl/engine/WrapModeDto;
+}
+

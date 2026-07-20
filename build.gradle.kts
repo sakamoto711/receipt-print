@@ -167,6 +167,48 @@ tasks.register("coreCheck") {
     )
 }
 
+tasks.register("engineCheck") {
+    group = "verification"
+    description = "Runs every conversion-engine check and sample verification."
+    dependsOn(
+        "coreCheck",
+        "receiptLineSvgCheck",
+        ":receipt-engine:checkKotlinAbi",
+        ":receipt-engine:jvmTest",
+        ":receipt-engine:iosSimulatorArm64Test",
+        ":samples:kotlinApp:jvmTest",
+        "swiftSampleCheck",
+    )
+}
+
+tasks.register<Exec>("swiftSampleCheck") {
+    group = "verification"
+    description = "Builds ReceiptPrint.xcframework and type-checks the Swift facade sample."
+    dependsOn(":receipt-engine:assembleReceiptPrintDebugXCFramework")
+
+    val frameworkDirectory = layout.projectDirectory.dir(
+        "receipt-engine/build/XCFrameworks/debug/ReceiptPrint.xcframework/ios-arm64-simulator",
+    )
+    val sample = layout.projectDirectory.file("samples/iosApp/ReceiptEngineSample.swift")
+    val moduleCache = layout.buildDirectory.dir("swift-module-cache")
+    inputs.file(sample)
+    inputs.dir(frameworkDirectory)
+    commandLine(
+        "xcrun",
+        "--sdk",
+        "iphonesimulator",
+        "swiftc",
+        "-typecheck",
+        "-target",
+        "arm64-apple-ios13.0-simulator",
+        "-module-cache-path",
+        moduleCache.get().asFile.absolutePath,
+        "-F",
+        frameworkDirectory.asFile.absolutePath,
+        sample.asFile.absolutePath,
+    )
+}
+
 val receiptLineNpmInstall by tasks.registering(Exec::class) {
     group = "build setup"
     description = "Installs the pinned ReceiptLine preview dependency when it is not already present."
@@ -214,5 +256,6 @@ tasks.register("publishAllToBuildRepository") {
         ":receipt-command-escpos:publishAllPublicationsToBuildRepository",
         ":receipt-command-star:publishAllPublicationsToBuildRepository",
         ":receipt-receiptline:publishAllPublicationsToBuildRepository",
+        ":receipt-engine:publishAllPublicationsToBuildRepository",
     )
 }

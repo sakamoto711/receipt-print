@@ -122,7 +122,6 @@ final enum class receiptdsl.model/ReverseMode : kotlin/Enum<receiptdsl.model/Rev
 }
 
 final enum class receiptdsl.model/SoundMode : kotlin/Enum<receiptdsl.model/SoundMode> { // receiptdsl.model/SoundMode|null[0]
-    enum entry DrawerKickPulse // receiptdsl.model/SoundMode.DrawerKickPulse|null[0]
     enum entry ExternalBuzzer // receiptdsl.model/SoundMode.ExternalBuzzer|null[0]
     enum entry NativeBuzzer // receiptdsl.model/SoundMode.NativeBuzzer|null[0]
     enum entry Unsupported // receiptdsl.model/SoundMode.Unsupported|null[0]
@@ -666,7 +665,7 @@ final class receiptdsl.model/PrintJob { // receiptdsl.model/PrintJob|null[0]
 }
 
 final class receiptdsl.model/PrinterCapabilities { // receiptdsl.model/PrinterCapabilities|null[0]
-    constructor <init>(kotlin/Int, kotlin/Int, kotlinx.collections.immutable/PersistentSet<receiptdsl.model/CutMode>, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, receiptdsl.model/ReverseMode, receiptdsl.model/SoundMode, kotlin/Int = ..., kotlin/Int? = ...) // receiptdsl.model/PrinterCapabilities.<init>|<init>(kotlin.Int;kotlin.Int;kotlinx.collections.immutable.PersistentSet<receiptdsl.model.CutMode>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;receiptdsl.model.ReverseMode;receiptdsl.model.SoundMode;kotlin.Int;kotlin.Int?){}[0]
+    constructor <init>(kotlin/Int, kotlin/Int, kotlinx.collections.immutable/PersistentSet<receiptdsl.model/CutMode>, kotlin/Boolean, kotlin/Boolean, kotlin/Boolean, receiptdsl.model/ReverseMode, receiptdsl.model/SoundMode, kotlin/Int = ..., kotlin/Int? = ..., kotlin/Int = ...) // receiptdsl.model/PrinterCapabilities.<init>|<init>(kotlin.Int;kotlin.Int;kotlinx.collections.immutable.PersistentSet<receiptdsl.model.CutMode>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;receiptdsl.model.ReverseMode;receiptdsl.model.SoundMode;kotlin.Int;kotlin.Int?;kotlin.Int){}[0]
 
     final val compatibilityQrCellSize // receiptdsl.model/PrinterCapabilities.compatibilityQrCellSize|{}compatibilityQrCellSize[0]
         final fun <get-compatibilityQrCellSize>(): kotlin/Int? // receiptdsl.model/PrinterCapabilities.compatibilityQrCellSize.<get-compatibilityQrCellSize>|<get-compatibilityQrCellSize>(){}[0]
@@ -676,6 +675,8 @@ final class receiptdsl.model/PrinterCapabilities { // receiptdsl.model/PrinterCa
         final fun <get-maxQrCellSize>(): kotlin/Int // receiptdsl.model/PrinterCapabilities.maxQrCellSize.<get-maxQrCellSize>|<get-maxQrCellSize>(){}[0]
     final val maxWidthScale // receiptdsl.model/PrinterCapabilities.maxWidthScale|{}maxWidthScale[0]
         final fun <get-maxWidthScale>(): kotlin/Int // receiptdsl.model/PrinterCapabilities.maxWidthScale.<get-maxWidthScale>|<get-maxWidthScale>(){}[0]
+    final val printableWidthDots // receiptdsl.model/PrinterCapabilities.printableWidthDots|{}printableWidthDots[0]
+        final fun <get-printableWidthDots>(): kotlin/Int // receiptdsl.model/PrinterCapabilities.printableWidthDots.<get-printableWidthDots>|<get-printableWidthDots>(){}[0]
     final val reverseMode // receiptdsl.model/PrinterCapabilities.reverseMode|{}reverseMode[0]
         final fun <get-reverseMode>(): receiptdsl.model/ReverseMode // receiptdsl.model/PrinterCapabilities.reverseMode.<get-reverseMode>|<get-reverseMode>(){}[0]
     final val soundMode // receiptdsl.model/PrinterCapabilities.soundMode|{}soundMode[0]
@@ -691,6 +692,7 @@ final class receiptdsl.model/PrinterCapabilities { // receiptdsl.model/PrinterCa
 
     final fun component1(): kotlin/Int // receiptdsl.model/PrinterCapabilities.component1|component1(){}[0]
     final fun component10(): kotlin/Int? // receiptdsl.model/PrinterCapabilities.component10|component10(){}[0]
+    final fun component11(): kotlin/Int // receiptdsl.model/PrinterCapabilities.component11|component11(){}[0]
     final fun component2(): kotlin/Int // receiptdsl.model/PrinterCapabilities.component2|component2(){}[0]
     final fun component3(): kotlinx.collections.immutable/PersistentSet<receiptdsl.model/CutMode> // receiptdsl.model/PrinterCapabilities.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // receiptdsl.model/PrinterCapabilities.component4|component4(){}[0]
@@ -699,7 +701,7 @@ final class receiptdsl.model/PrinterCapabilities { // receiptdsl.model/PrinterCa
     final fun component7(): receiptdsl.model/ReverseMode // receiptdsl.model/PrinterCapabilities.component7|component7(){}[0]
     final fun component8(): receiptdsl.model/SoundMode // receiptdsl.model/PrinterCapabilities.component8|component8(){}[0]
     final fun component9(): kotlin/Int // receiptdsl.model/PrinterCapabilities.component9|component9(){}[0]
-    final fun copy(kotlin/Int = ..., kotlin/Int = ..., kotlinx.collections.immutable/PersistentSet<receiptdsl.model/CutMode> = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., receiptdsl.model/ReverseMode = ..., receiptdsl.model/SoundMode = ..., kotlin/Int = ..., kotlin/Int? = ...): receiptdsl.model/PrinterCapabilities // receiptdsl.model/PrinterCapabilities.copy|copy(kotlin.Int;kotlin.Int;kotlinx.collections.immutable.PersistentSet<receiptdsl.model.CutMode>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;receiptdsl.model.ReverseMode;receiptdsl.model.SoundMode;kotlin.Int;kotlin.Int?){}[0]
+    final fun copy(kotlin/Int = ..., kotlin/Int = ..., kotlinx.collections.immutable/PersistentSet<receiptdsl.model/CutMode> = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., receiptdsl.model/ReverseMode = ..., receiptdsl.model/SoundMode = ..., kotlin/Int = ..., kotlin/Int? = ..., kotlin/Int = ...): receiptdsl.model/PrinterCapabilities // receiptdsl.model/PrinterCapabilities.copy|copy(kotlin.Int;kotlin.Int;kotlinx.collections.immutable.PersistentSet<receiptdsl.model.CutMode>;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;receiptdsl.model.ReverseMode;receiptdsl.model.SoundMode;kotlin.Int;kotlin.Int?;kotlin.Int){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.model/PrinterCapabilities.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // receiptdsl.model/PrinterCapabilities.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // receiptdsl.model/PrinterCapabilities.toString|toString(){}[0]
@@ -901,7 +903,7 @@ final object receiptdsl.model/PrinterProfiles { // receiptdsl.model/PrinterProfi
     final fun fvp10(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.fvp10|fvp10(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
     final fun mcPrint3(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.mcPrint3|mcPrint3(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
     final fun rpF10(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.rpF10|rpF10(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
-    final fun tmM30(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.tmM30|tmM30(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
+    final fun tmM30(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.tmM30|tmM30(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean;kotlin.Boolean){}[0]
     final fun tmT90Kp(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.tmT90Kp|tmT90Kp(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
     final fun tsp650II(kotlin/Int = ..., receiptdsl.model/CompatibilityMode = ..., kotlin/Boolean = ...): receiptdsl.model/PrinterProfile // receiptdsl.model/PrinterProfiles.tsp650II|tsp650II(kotlin.Int;receiptdsl.model.CompatibilityMode;kotlin.Boolean){}[0]
 }

@@ -22,7 +22,7 @@ PrintJobDto
 
 `ReceiptEngine.compile(job, printer)` は機種別コマンドの `ByteArray` を返し、`ReceiptEngine.preview(job, printer)` は同じツリーとプリンタープロファイルから ReceiptLine を返します。エラーと近似表現は、ツリー上の位置を含む `DiagnosticDto` として返します。
 
-`PrinterProfileDto` で指定するのは機種、1 行の桁数、互換モード、サウンド有効・無効だけです。対応コマンドセットとプリンター能力は選択した機種からライブラリ内で解決します。
+`PrinterProfileDto` で指定するのは機種、1 行の桁数、互換モード、サウンドの許可です。TM-m30 でサウンドを使う場合は、外付けブザーを設定済みであることも明示します。対応コマンドセットとその他のプリンター能力は選択した機種からライブラリ内で解決します。
 
 ## モジュール
 

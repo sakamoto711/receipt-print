@@ -106,9 +106,9 @@ public class StarCommandEncoderTest {
         )
         val bytes = result.bytes!!.toByteArray().unsigned()
 
-        val rule = bytes.indexOfSubsequence(listOf(0x1B, 0x4C, 0x00, 0x03))
+        val rule = bytes.indexOfSubsequence(listOf(0x1B, 0x4C, 0x40, 0x02))
         assertTrue(rule >= 0)
-        assertTrue(bytes.subList(rule + 4, rule + 4 + 0x300).all { it == 0x08 })
+        assertTrue(bytes.subList(rule + 4, rule + 4 + 576).all { it == 0x08 })
         assertTrue(bytes.containsSubsequence(listOf(0x1B, 0x1D, 0x79, 0x53, 0x31, 0x03)))
         assertTrue(bytes.containsSubsequence(listOf(0x1B, 0x1D, 0x79, 0x53, 0x32, 0x03)))
     }

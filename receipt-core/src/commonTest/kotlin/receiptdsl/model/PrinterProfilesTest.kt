@@ -25,7 +25,12 @@ public class PrinterProfilesTest {
         assertEquals(6, PrinterProfiles.fvp10().capabilities.maxWidthScale)
         assertEquals(ReverseMode.Unsupported, PrinterProfiles.tmM30().capabilities.reverseMode)
         assertEquals(ReverseMode.ReorderLinesAndReverseGlyphs, PrinterProfiles.rpF10().capabilities.reverseMode)
-        assertEquals(SoundMode.DrawerKickPulse, PrinterProfiles.tmM30().capabilities.soundMode)
+        assertEquals(SoundMode.Unsupported, PrinterProfiles.tmM30().capabilities.soundMode)
+        assertEquals(
+            SoundMode.ExternalBuzzer,
+            PrinterProfiles.tmM30(optionalExternalBuzzerEnabled = true).capabilities.soundMode,
+        )
         assertEquals(SoundMode.ExternalBuzzer, PrinterProfiles.tsp650II().capabilities.soundMode)
+        assertEquals(576, PrinterProfiles.mcPrint3().capabilities.printableWidthDots)
     }
 }

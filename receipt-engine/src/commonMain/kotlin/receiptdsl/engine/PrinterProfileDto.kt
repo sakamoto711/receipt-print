@@ -5,6 +5,7 @@ public data class PrinterProfileDto(
     val columnsPerLine: Int = 48,
     val compatibilityMode: CompatibilityModeDto = CompatibilityModeDto.Strict,
     val soundEnabled: Boolean = true,
+    val optionalExternalBuzzerEnabled: Boolean = false,
 )
 
 public enum class PrinterModelDto {

@@ -42,14 +42,17 @@ public class EscPosCommandEncoderTest {
                 blocks = listOf(textLine("A", style)),
                 startActions = listOf(JobAction.PlaySound),
             ),
-            profile = PrinterProfiles.tmM30(compatibilityMode = CompatibilityMode.Compatibility),
+            profile = PrinterProfiles.tmM30(
+                compatibilityMode = CompatibilityMode.Compatibility,
+                optionalExternalBuzzerEnabled = true,
+            ),
         )
 
         assertContentEquals(
             ints(
                 0x1B, 0x40, 0x1B, 0x21, 0x00, 0x1B, 0x52, 0x08,
                 0x1C, 0x26, 0x1C, 0x2E, 0x00, 0x1C, 0x43, 0x01,
-                0x10, 0x14, 0x01, 0x00, 0x01,
+                0x1B, 0x28, 0x41, 0x03, 0x00, 0x61, 0x01, 0x01,
                 0x1B, 0x61, 0x00, 0x1D, 0x21, 0x00, 0x1B, 0x45, 0x00, 0x1D, 0x42, 0x00,
                 0x1B, 0x61, 0x01, 0x1D, 0x21, 0x11, 0x1B, 0x45, 0x01, 0x1D, 0x42, 0x01,
                 0x41, 0x0A,
@@ -83,11 +86,11 @@ public class EscPosCommandEncoderTest {
     }
 
     @Test
-    public fun strictQrHonorsOptionsAndRuleUsesFixedBitImageWidth() {
+    public fun strictQrHonorsOptionsAndRuleEndsItsBitImageLine() {
         val result = EscPosCommandEncoder.encode(
             job = job(
                 blocks = listOf(
-                    LaidOutRule(thickness = 4),
+                    LaidOutRule(thickness = 2),
                     LaidOutQrCode(
                         data = ByteString.copyFrom(byteArrayOf(0x41, 0x42)),
                         cellSize = 4,
@@ -104,7 +107,10 @@ public class EscPosCommandEncoderTest {
         val rule = bytes.indexOfSubsequence(listOf(0x1B, 0x2A, 0x00, 0x20, 0x01))
         assertTrue(rule >= 0)
         assertTrue(bytes.subList(rule + 5, rule + 5 + 0x120).all { it == 0x18 })
-        assertTrue(bytes.containsSubsequence(listOf(0x1D, 0x28, 0x6B, 0x04, 0x00, 0x31, 0x41, 0x32, 0x00)))
+        val ruleEnd = rule + 5 + 0x120
+        assertEquals(0x0A, bytes[ruleEnd])
+        val qrModel = listOf(0x1D, 0x28, 0x6B, 0x04, 0x00, 0x31, 0x41, 0x32, 0x00)
+        assertTrue(bytes.indexOfSubsequence(qrModel) > ruleEnd)
         assertTrue(bytes.containsSubsequence(listOf(0x1D, 0x28, 0x6B, 0x03, 0x00, 0x31, 0x45, 0x33)))
         assertTrue(bytes.containsSubsequence(listOf(0x1D, 0x28, 0x6B, 0x03, 0x00, 0x31, 0x43, 0x04)))
     }

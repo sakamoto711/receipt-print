@@ -142,6 +142,16 @@ public class ReceiptLineExporterTest {
     }
 
     @Test
+    public fun rejectsTextThatThePrinterProfileCannotEncode() {
+        val result = DefaultReceiptLineExporter.export(
+            PrintJob(persistentListOf(Ticket(TextBlock("A🙂B")))),
+        )
+
+        assertNull(result.markdown)
+        assertEquals("UNSUPPORTED_GLYPH", result.diagnostics.single().code)
+    }
+
+    @Test
     public fun preservesIntermediateBlankLinesButNotTrailingLineSplitterElement() {
         val result = DefaultReceiptLineExporter.export(
             PrintJob(

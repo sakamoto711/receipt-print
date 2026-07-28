@@ -480,10 +480,11 @@ public final class receiptdsl/model/PrintJob {
 }
 
 public final class receiptdsl/model/PrinterCapabilities {
-	public fun <init> (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;)V
-	public synthetic fun <init> (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;I)V
+	public synthetic fun <init> (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()I
 	public final fun component10 ()Ljava/lang/Integer;
+	public final fun component11 ()I
 	public final fun component2 ()I
 	public final fun component3 ()Lkotlinx/collections/immutable/PersistentSet;
 	public final fun component4 ()Z
@@ -492,13 +493,14 @@ public final class receiptdsl/model/PrinterCapabilities {
 	public final fun component7 ()Lreceiptdsl/model/ReverseMode;
 	public final fun component8 ()Lreceiptdsl/model/SoundMode;
 	public final fun component9 ()I
-	public final fun copy (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;)Lreceiptdsl/model/PrinterCapabilities;
-	public static synthetic fun copy$default (Lreceiptdsl/model/PrinterCapabilities;IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;ILjava/lang/Object;)Lreceiptdsl/model/PrinterCapabilities;
+	public final fun copy (IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;I)Lreceiptdsl/model/PrinterCapabilities;
+	public static synthetic fun copy$default (Lreceiptdsl/model/PrinterCapabilities;IILkotlinx/collections/immutable/PersistentSet;ZZZLreceiptdsl/model/ReverseMode;Lreceiptdsl/model/SoundMode;ILjava/lang/Integer;IILjava/lang/Object;)Lreceiptdsl/model/PrinterCapabilities;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCompatibilityQrCellSize ()Ljava/lang/Integer;
 	public final fun getMaxHeightScale ()I
 	public final fun getMaxQrCellSize ()I
 	public final fun getMaxWidthScale ()I
+	public final fun getPrintableWidthDots ()I
 	public final fun getReverseMode ()Lreceiptdsl/model/ReverseMode;
 	public final fun getSoundMode ()Lreceiptdsl/model/SoundMode;
 	public final fun getSupportedCuts ()Lkotlinx/collections/immutable/PersistentSet;
@@ -556,8 +558,8 @@ public final class receiptdsl/model/PrinterProfiles {
 	public static synthetic fun mcPrint3$default (Lreceiptdsl/model/PrinterProfiles;ILreceiptdsl/model/CompatibilityMode;ZILjava/lang/Object;)Lreceiptdsl/model/PrinterProfile;
 	public final fun rpF10 (ILreceiptdsl/model/CompatibilityMode;Z)Lreceiptdsl/model/PrinterProfile;
 	public static synthetic fun rpF10$default (Lreceiptdsl/model/PrinterProfiles;ILreceiptdsl/model/CompatibilityMode;ZILjava/lang/Object;)Lreceiptdsl/model/PrinterProfile;
-	public final fun tmM30 (ILreceiptdsl/model/CompatibilityMode;Z)Lreceiptdsl/model/PrinterProfile;
-	public static synthetic fun tmM30$default (Lreceiptdsl/model/PrinterProfiles;ILreceiptdsl/model/CompatibilityMode;ZILjava/lang/Object;)Lreceiptdsl/model/PrinterProfile;
+	public final fun tmM30 (ILreceiptdsl/model/CompatibilityMode;ZZ)Lreceiptdsl/model/PrinterProfile;
+	public static synthetic fun tmM30$default (Lreceiptdsl/model/PrinterProfiles;ILreceiptdsl/model/CompatibilityMode;ZZILjava/lang/Object;)Lreceiptdsl/model/PrinterProfile;
 	public final fun tmT90Kp (ILreceiptdsl/model/CompatibilityMode;Z)Lreceiptdsl/model/PrinterProfile;
 	public static synthetic fun tmT90Kp$default (Lreceiptdsl/model/PrinterProfiles;ILreceiptdsl/model/CompatibilityMode;ZILjava/lang/Object;)Lreceiptdsl/model/PrinterProfile;
 	public final fun tsp650II (ILreceiptdsl/model/CompatibilityMode;Z)Lreceiptdsl/model/PrinterProfile;
@@ -618,7 +620,6 @@ public final class receiptdsl/model/Rule : receiptdsl/model/BlockNode {
 }
 
 public final class receiptdsl/model/SoundMode : java/lang/Enum {
-	public static final field DrawerKickPulse Lreceiptdsl/model/SoundMode;
 	public static final field ExternalBuzzer Lreceiptdsl/model/SoundMode;
 	public static final field NativeBuzzer Lreceiptdsl/model/SoundMode;
 	public static final field Unsupported Lreceiptdsl/model/SoundMode;

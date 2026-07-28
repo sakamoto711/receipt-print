@@ -50,6 +50,7 @@ public data class PrinterCapabilities(
     val soundMode: SoundMode,
     val maxQrCellSize: Int = 255,
     val compatibilityQrCellSize: Int? = null,
+    val printableWidthDots: Int = DEFAULT_PRINTABLE_WIDTH_DOTS,
 )
 
 public enum class ReverseMode {
@@ -61,7 +62,6 @@ public enum class ReverseMode {
 public enum class SoundMode {
     NativeBuzzer,
     ExternalBuzzer,
-    DrawerKickPulse,
     Unsupported,
 }
 
@@ -97,13 +97,14 @@ public object PrinterProfiles {
         columnsPerLine: Int = DEFAULT_COLUMNS_PER_LINE,
         compatibilityMode: CompatibilityMode = CompatibilityMode.Strict,
         soundEnabled: Boolean = true,
+        optionalExternalBuzzerEnabled: Boolean = false,
     ): PrinterProfile = escPosProfile(
         id = "epson-tm-m30",
         model = PrinterModel.EpsonTmM30,
         columnsPerLine = columnsPerLine,
         compatibilityMode = compatibilityMode,
         reverseMode = ReverseMode.Unsupported,
-        soundMode = SoundMode.DrawerKickPulse,
+        soundMode = if (optionalExternalBuzzerEnabled) SoundMode.ExternalBuzzer else SoundMode.Unsupported,
         soundEnabled = soundEnabled,
     )
 
@@ -214,3 +215,5 @@ public object PrinterProfiles {
 
     private const val DEFAULT_COLUMNS_PER_LINE: Int = 48
 }
+
+private const val DEFAULT_PRINTABLE_WIDTH_DOTS: Int = 576

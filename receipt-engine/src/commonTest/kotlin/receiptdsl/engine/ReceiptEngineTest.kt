@@ -44,7 +44,10 @@ public class ReceiptEngineTest {
             ),
             startActions = listOf(JobActionDto.PlaySound),
         )
-        val printer = PrinterProfileDto(PrinterModelDto.EpsonTmM30)
+        val printer = PrinterProfileDto(
+            model = PrinterModelDto.EpsonTmM30,
+            optionalExternalBuzzerEnabled = true,
+        )
 
         val preview = engine.preview(job, printer)
         val compiled = engine.compile(job, printer)
@@ -118,6 +121,66 @@ public class ReceiptEngineTest {
     }
 
     @Test
+    public fun previewAndCompileBothRejectUnsupportedCp932Glyphs() {
+        val job = PrintJobDto(
+            tickets = listOf(
+                TicketDto(PrintNodeListDto(listOf(TextDto("A🙂B"))), cut = CutModeDto.None),
+            ),
+        )
+        val printer = PrinterProfileDto(PrinterModelDto.EpsonTmM30)
+
+        val compiled = engine.compile(job, printer)
+        val preview = engine.preview(job, printer)
+
+        assertFalse(compiled.isSuccess)
+        assertFalse(preview.isSuccess)
+        assertEquals("UNSUPPORTED_GLYPH", compiled.diagnostics.single().code)
+        assertEquals("UNSUPPORTED_GLYPH", preview.diagnostics.single().code)
+    }
+
+    @Test
+    public fun tmM30ExternalBuzzerMustBeExplicitlyConfigured() {
+        val job = PrintJobDto(
+            tickets = listOf(
+                TicketDto(PrintNodeListDto(listOf(TextDto("sound"))), cut = CutModeDto.None),
+            ),
+            startActions = listOf(JobActionDto.PlaySound),
+        )
+
+        val unconfigured = engine.compile(job, PrinterProfileDto(PrinterModelDto.EpsonTmM30))
+        val configured = engine.compile(
+            job,
+            PrinterProfileDto(
+                model = PrinterModelDto.EpsonTmM30,
+                optionalExternalBuzzerEnabled = true,
+            ),
+        )
+        val soundDisabled = engine.compile(
+            job,
+            PrinterProfileDto(
+                model = PrinterModelDto.EpsonTmM30,
+                soundEnabled = false,
+            ),
+        )
+
+        assertFalse(unconfigured.isSuccess)
+        assertEquals("UNSUPPORTED_FEATURE", unconfigured.diagnostics.single().code)
+        assertTrue(configured.isSuccess)
+        assertTrue(
+            requireNotNull(configured.bytes).toList().containsSubsequence(
+                listOf(0x1B, 0x28, 0x41, 0x03, 0x00, 0x61, 0x01, 0x01),
+            ),
+        )
+        assertTrue(soundDisabled.isSuccess)
+        assertEquals("UNSUPPORTED_FEATURE", soundDisabled.diagnostics.single().code)
+        assertFalse(
+            requireNotNull(soundDisabled.bytes).toList().containsSubsequence(
+                listOf(0x1B, 0x28, 0x41, 0x03, 0x00, 0x61, 0x01, 0x01),
+            ),
+        )
+    }
+
+    @Test
     public fun compileResponseDoesNotExposeItsStoredByteArray() {
         val response = engine.compile(
             PrintJobDto(
@@ -133,5 +196,11 @@ public class ReceiptEngineTest {
         original.fill(0)
 
         assertContentEquals(expected, response.bytes)
+    }
+}
+
+private fun List<Byte>.containsSubsequence(expected: List<Int>): Boolean = indices.any { start ->
+    start + expected.size <= size && expected.indices.all { offset ->
+        (this[start + offset].toInt() and 0xFF) == expected[offset]
     }
 }

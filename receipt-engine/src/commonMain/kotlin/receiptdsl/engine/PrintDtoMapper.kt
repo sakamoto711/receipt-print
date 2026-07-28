@@ -84,7 +84,12 @@ internal fun PrinterProfileDto.toPrinterProfile(): PrinterProfile {
     return when (model) {
         PrinterModelDto.StarFvp10 -> PrinterProfiles.fvp10(columnsPerLine, compatibilityMode, soundEnabled)
         PrinterModelDto.EpsonTmT90Kp -> PrinterProfiles.tmT90Kp(columnsPerLine, compatibilityMode, soundEnabled)
-        PrinterModelDto.EpsonTmM30 -> PrinterProfiles.tmM30(columnsPerLine, compatibilityMode, soundEnabled)
+        PrinterModelDto.EpsonTmM30 -> PrinterProfiles.tmM30(
+            columnsPerLine = columnsPerLine,
+            compatibilityMode = compatibilityMode,
+            soundEnabled = soundEnabled,
+            optionalExternalBuzzerEnabled = optionalExternalBuzzerEnabled,
+        )
         PrinterModelDto.StarTsp650II -> PrinterProfiles.tsp650II(columnsPerLine, compatibilityMode, soundEnabled)
         PrinterModelDto.StarMcPrint3 -> PrinterProfiles.mcPrint3(columnsPerLine, compatibilityMode, soundEnabled)
         PrinterModelDto.SiiRpF10 -> PrinterProfiles.rpF10(columnsPerLine, compatibilityMode, soundEnabled)

@@ -123,6 +123,16 @@ public class LayoutEngineTest {
     }
 
     @Test
+    public fun wordWrapDoesNotCreateAWhitespaceOnlyLineAfterAnExactWidthWord() {
+        val result = engine.layout(
+            job = job(TextBlock("hello world", wrap = WrapMode.WordOrCharacter)),
+            profile = profile(columnsPerLine = 5),
+        )
+
+        assertEquals(listOf("hello", "world"), renderedLines(assertNotNull(result.job)))
+    }
+
+    @Test
     public fun keepsTicketBoundariesAndNonTextOperations() {
         val job = PrintJob(
             tickets = persistentListOf(
@@ -429,6 +439,26 @@ public class LayoutEngineTest {
         val qrCode = assertIs<LaidOutQrCode>(assertNotNull(result.job).tickets.single().blocks.single())
         assertEquals(8, qrCode.cellSize)
         assertEquals(8, result.diagnostics.filterIsInstance<ValueClamped>().single().actual)
+    }
+
+    @Test
+    public fun compatibilityModeClampsRuleThicknessToTheRepresentableRange() {
+        val result = engine.layout(
+            job = job(Rule(thickness = 4)),
+            profile = profile(mode = CompatibilityMode.Compatibility),
+        )
+
+        val rule = assertIs<LaidOutRule>(assertNotNull(result.job).tickets.single().blocks.single())
+        assertEquals(2, rule.thickness)
+        assertEquals(
+            ValueClamped(
+                property = "rule.thickness",
+                requested = 4,
+                actual = 2,
+                path = NodePath(ticketIndex = 0),
+            ),
+            result.diagnostics.single(),
+        )
     }
 
     @Test

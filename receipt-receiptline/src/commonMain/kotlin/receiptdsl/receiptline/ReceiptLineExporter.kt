@@ -8,6 +8,7 @@ import receiptdsl.diagnostic.Diagnostic
 import receiptdsl.diagnostic.DiagnosticSeverity
 import receiptdsl.diagnostic.InvalidLayout
 import receiptdsl.diagnostic.NodePath
+import receiptdsl.layout.DefaultLayoutEngine
 import receiptdsl.model.BlockNode
 import receiptdsl.model.Column
 import receiptdsl.model.CommandSet
@@ -30,7 +31,6 @@ import receiptdsl.model.TextStyle
 import receiptdsl.model.TwoColumnLine
 import receiptdsl.model.TwoColumnOverflow
 import receiptdsl.model.WrapMode
-import receiptdsl.validation.DefaultPrintJobValidator
 
 public interface ReceiptLineExporter {
     public fun export(job: PrintJob, profile: PreviewProfile = PreviewProfile()): ReceiptLineResult
@@ -76,16 +76,16 @@ public object DefaultReceiptLineExporter : ReceiptLineExporter {
     }
 
     override fun export(job: PrintJob, profile: PrinterProfile): ReceiptLineResult {
-        val validation = DefaultPrintJobValidator().validate(job, profile)
-        if (!validation.isSuccess) {
+        val layout = DefaultLayoutEngine().layout(job, profile)
+        if (layout.job == null) {
             return ReceiptLineResult(
                 markdown = null,
-                diagnostics = validation.diagnostics,
+                diagnostics = layout.diagnostics,
             )
         }
 
         val lines = mutableListOf<String>()
-        val diagnostics = validation.diagnostics.toMutableList()
+        val diagnostics = layout.diagnostics.toMutableList()
         if (job.direction == PrintDirection.Reverse) {
             diagnostics += PreviewApproximation("reverse printing", path = null)
         }

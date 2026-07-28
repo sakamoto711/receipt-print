@@ -93,6 +93,12 @@ public class StarCommandEncoder(
         profile: PrinterProfile,
     ): MutableList<Diagnostic> {
         val diagnostics = mutableListOf<Diagnostic>()
+        if (profile.capabilities.printableWidthDots !in 1..MAX_PRINTABLE_WIDTH_DOTS) {
+            diagnostics += InvalidLayout(
+                reason = "Star printable width must be in 1..$MAX_PRINTABLE_WIDTH_DOTS dots",
+                path = null,
+            )
+        }
         if (job.direction == PrintDirection.Reverse &&
             profile.capabilities.reverseMode != receiptdsl.model.ReverseMode.NativePageReverse
         ) {
@@ -144,6 +150,14 @@ public class StarCommandEncoder(
                             path = null,
                         )
                     }
+                }
+            }
+            ticket.blocks.filterIsInstance<LaidOutRule>().forEach { rule ->
+                if (rule.thickness !in MIN_RULE_THICKNESS..MAX_RULE_THICKNESS) {
+                    diagnostics += InvalidLayout(
+                        reason = "Star rule thickness must be in $MIN_RULE_THICKNESS..$MAX_RULE_THICKNESS",
+                        path = null,
+                    )
                 }
             }
         }
@@ -204,7 +218,7 @@ public class StarCommandEncoder(
     ): TextStyle = when (block) {
         is LaidOutTextLine -> encodeTextLine(block.operations, currentStyle, output)
         is LaidOutRule -> {
-            encodeRule(block.thickness, output)
+            encodeRule(block.thickness, profile.capabilities.printableWidthDots, output)
             currentStyle
         }
         is LaidOutQrCode -> {
@@ -265,10 +279,10 @@ public class StarCommandEncoder(
         }
     }
 
-    private fun encodeRule(thickness: Int, output: ByteAccumulator) {
-        val imageByte = if (thickness <= 3) 0x08 else 0x18
-        output.append(ESC, UPPERCASE_L, RULE_WIDTH_DOTS and 0xFF, RULE_WIDTH_DOTS ushr 8)
-        repeat(RULE_WIDTH_DOTS) { output.append(imageByte) }
+    private fun encodeRule(thickness: Int, widthDots: Int, output: ByteAccumulator) {
+        val imageByte = if (thickness == MIN_RULE_THICKNESS) 0x08 else 0x18
+        output.append(ESC, UPPERCASE_L, widthDots and 0xFF, widthDots ushr 8)
+        repeat(widthDots) { output.append(imageByte) }
     }
 
     private fun encodeQr(
@@ -394,7 +408,9 @@ public class StarCommandEncoder(
         private const val LOWERCASE_I: Int = 0x69
         private const val LOWERCASE_S: Int = 0x73
         private const val LOWERCASE_Y: Int = 0x79
-        private const val RULE_WIDTH_DOTS: Int = 0x300
+        private const val MIN_RULE_THICKNESS: Int = 1
+        private const val MAX_RULE_THICKNESS: Int = 2
+        private const val MAX_PRINTABLE_WIDTH_DOTS: Int = 0xFFFF
         private const val MAX_QR_DATA_BYTES: Int = 0xFFFF
     }
 }

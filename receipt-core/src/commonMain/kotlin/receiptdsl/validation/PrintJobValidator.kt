@@ -48,7 +48,8 @@ public class DefaultPrintJobValidator : PrintJobValidator {
             diagnostics += unsupportedFeature("reverse", profile, path = null)
         }
 
-        if (job.startActions.any { it == JobAction.PlaySound } &&
+        if (profile.soundEnabled &&
+            job.startActions.any { it == JobAction.PlaySound } &&
             profile.capabilities.soundMode == SoundMode.Unsupported
         ) {
             diagnostics += unsupportedFeature("sound", profile, path = null)
@@ -117,6 +118,12 @@ public class DefaultPrintJobValidator : PrintJobValidator {
                 path = null,
             )
         }
+        if (profile.capabilities.printableWidthDots !in 1..MAX_PRINTABLE_WIDTH_DOTS) {
+            diagnostics += InvalidLayout(
+                reason = "PrinterCapabilities.printableWidthDots must be in 1..$MAX_PRINTABLE_WIDTH_DOTS",
+                path = null,
+            )
+        }
         profile.capabilities.compatibilityQrCellSize?.let { compatibilityQrCellSize ->
             if (compatibilityQrCellSize !in 1..profile.capabilities.maxQrCellSize) {
                 diagnostics += InvalidLayout(
@@ -161,11 +168,20 @@ public class DefaultPrintJobValidator : PrintJobValidator {
             )
 
             is Rule -> {
-                if (node.thickness < 1) {
-                    diagnostics += InvalidLayout(
-                        reason = "Rule.thickness must be at least one",
-                        path = path,
-                    )
+                if (node.thickness !in MIN_RULE_THICKNESS..MAX_RULE_THICKNESS) {
+                    if (profile.compatibilityMode == CompatibilityMode.Compatibility) {
+                        diagnostics += ValueClamped(
+                            property = "rule.thickness",
+                            requested = node.thickness,
+                            actual = node.thickness.coerceIn(MIN_RULE_THICKNESS, MAX_RULE_THICKNESS),
+                            path = path,
+                        )
+                    } else {
+                        diagnostics += InvalidLayout(
+                            reason = "Rule.thickness must be in $MIN_RULE_THICKNESS..$MAX_RULE_THICKNESS",
+                            path = path,
+                        )
+                    }
                 }
             }
 
@@ -433,4 +449,10 @@ public class DefaultPrintJobValidator : PrintJobValidator {
 
     private fun NodePath.child(index: Int): NodePath =
         copy(childIndexes = childIndexes.add(index))
+
+    private companion object {
+        private const val MIN_RULE_THICKNESS: Int = 1
+        private const val MAX_RULE_THICKNESS: Int = 2
+        private const val MAX_PRINTABLE_WIDTH_DOTS: Int = 0xFFFF
+    }
 }

@@ -104,10 +104,11 @@ public object EscPosCommandEncoder : CommandEncoder {
                     } else {
                         when (profile.capabilities.soundMode) {
                             SoundMode.NativeBuzzer -> output.append(0x10, 0x14, 0x03, 0x03, 0x00, 0x01, 0x01, 0x00)
-                            SoundMode.DrawerKickPulse -> output.append(0x10, 0x14, 0x01, 0x00, 0x01)
-                            SoundMode.ExternalBuzzer,
-                            SoundMode.Unsupported,
-                            -> diagnostics += UnsupportedFeature(
+                            SoundMode.ExternalBuzzer -> output.append(
+                                ESC, LEFT_PARENTHESIS, UPPERCASE_A,
+                                0x03, 0x00, 0x61, 0x01, 0x01,
+                            )
+                            SoundMode.Unsupported -> diagnostics += UnsupportedFeature(
                                 feature = "sound",
                                 profileId = profile.id,
                                 severity = severity(profile),
@@ -176,6 +177,14 @@ public object EscPosCommandEncoder : CommandEncoder {
                             path = null,
                         )
                     }
+                }
+            }
+            ticket.blocks.filterIsInstance<LaidOutRule>().forEach { rule ->
+                if (rule.thickness !in MIN_RULE_THICKNESS..MAX_RULE_THICKNESS) {
+                    diagnostics += InvalidLayout(
+                        reason = "ESC/POS rule thickness must be in $MIN_RULE_THICKNESS..$MAX_RULE_THICKNESS",
+                        path = null,
+                    )
                 }
             }
         }
@@ -261,9 +270,10 @@ public object EscPosCommandEncoder : CommandEncoder {
     }
 
     private fun encodeRule(thickness: Int, output: ByteAccumulator) {
-        val imageByte = if (thickness <= 3) 0x08 else 0x18
+        val imageByte = if (thickness == MIN_RULE_THICKNESS) 0x08 else 0x18
         output.append(ESC, ASTERISK, 0x00, RULE_WIDTH_DOTS and 0xFF, RULE_WIDTH_DOTS ushr 8)
         repeat(RULE_WIDTH_DOTS) { output.append(imageByte) }
+        output.append(LF)
     }
 
     private fun encodeQr(
@@ -382,6 +392,7 @@ public object EscPosCommandEncoder : CommandEncoder {
     private const val PERIOD: Int = 0x2E
     private const val AT_SIGN: Int = 0x40
     private const val UPPERCASE_B: Int = 0x42
+    private const val UPPERCASE_A: Int = 0x41
     private const val UPPERCASE_C: Int = 0x43
     private const val UPPERCASE_E: Int = 0x45
     private const val UPPERCASE_R: Int = 0x52
@@ -391,6 +402,8 @@ public object EscPosCommandEncoder : CommandEncoder {
     private const val LOWERCASE_A: Int = 0x61
     private const val LOWERCASE_K: Int = 0x6B
     private const val RULE_WIDTH_DOTS: Int = 0x120
+    private const val MIN_RULE_THICKNESS: Int = 1
+    private const val MAX_RULE_THICKNESS: Int = 2
     private const val MAX_QR_DATA_BYTES: Int = 0xFFFF - 3
 }
 

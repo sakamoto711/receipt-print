@@ -190,6 +190,29 @@ public class PrintJobValidatorTest {
     }
 
     @Test
+    public fun validatesRuleThicknessAccordingToCompatibilityMode() {
+        val job = PrintJob(
+            tickets = persistentListOf(Ticket(content = Rule(thickness = 3))),
+        )
+
+        val strict = validator.validate(job, profile(mode = CompatibilityMode.Strict))
+        val compatibility = validator.validate(job, profile(mode = CompatibilityMode.Compatibility))
+
+        assertFalse(strict.isSuccess)
+        assertTrue(strict.diagnostics.single() is InvalidLayout)
+        assertTrue(compatibility.isSuccess)
+        assertEquals(
+            ValueClamped(
+                property = "rule.thickness",
+                requested = 3,
+                actual = 2,
+                path = NodePath(ticketIndex = 0),
+            ),
+            compatibility.diagnostics.single(),
+        )
+    }
+
+    @Test
     public fun rejectsReservedColumnsThatCannotFitTargetWidth() {
         val job = PrintJob(
             tickets = persistentListOf(

@@ -110,7 +110,15 @@ public class DefaultLayoutEngine(
                 diagnostics = diagnostics,
             )
 
-            is Rule -> listOf(LaidOutRule(node.thickness))
+            is Rule -> listOf(
+                LaidOutRule(
+                    thickness = if (profile.compatibilityMode == CompatibilityMode.Compatibility) {
+                        node.thickness.coerceIn(MIN_RULE_THICKNESS, MAX_RULE_THICKNESS)
+                    } else {
+                        node.thickness
+                    },
+                ),
+            )
             is QrCode -> listOf(layoutQrCode(node, path, profile, diagnostics))
             is Feed -> listOf(LaidOutFeed(node.lines))
         }
@@ -558,6 +566,11 @@ public class DefaultLayoutEngine(
             }
             lines += glyphs.subList(startIndex, endIndex)
             startIndex = endIndex
+            if (lines.last().lastOrNull()?.source?.all(Char::isWhitespace) == false) {
+                while (startIndex < glyphs.size && glyphs[startIndex].source.all(Char::isWhitespace)) {
+                    startIndex += 1
+                }
+            }
         }
         return lines
     }
@@ -722,6 +735,11 @@ public class DefaultLayoutEngine(
 
     private fun NodePath.child(index: Int): NodePath =
         copy(childIndexes = childIndexes.add(index))
+
+    private companion object {
+        private const val MIN_RULE_THICKNESS: Int = 1
+        private const val MAX_RULE_THICKNESS: Int = 2
+    }
 
     private data class EncodedGlyph(
         val source: String,

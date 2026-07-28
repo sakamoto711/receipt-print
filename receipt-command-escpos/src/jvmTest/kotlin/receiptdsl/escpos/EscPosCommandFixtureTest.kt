@@ -27,7 +27,13 @@ class EscPosCommandFixtureTest {
     fun allEscPosProfilesMatchTheirPinnedPrimitiveFixtures() {
         val cases = listOf(
             Case("epson-tm-t90kp.json", PrinterProfiles.tmT90Kp(compatibilityMode = CompatibilityMode.Compatibility)),
-            Case("epson-tm-m30.json", PrinterProfiles.tmM30(compatibilityMode = CompatibilityMode.Compatibility)),
+            Case(
+                "epson-tm-m30.json",
+                PrinterProfiles.tmM30(
+                    compatibilityMode = CompatibilityMode.Compatibility,
+                    optionalExternalBuzzerEnabled = true,
+                ),
+            ),
             Case("sii-rp-f10.json", PrinterProfiles.rpF10(compatibilityMode = CompatibilityMode.Compatibility)),
         )
 

@@ -230,7 +230,7 @@ final class receiptdsl.engine/PrintJobDto { // receiptdsl.engine/PrintJobDto|nul
 }
 
 final class receiptdsl.engine/PrinterProfileDto { // receiptdsl.engine/PrinterProfileDto|null[0]
-    constructor <init>(receiptdsl.engine/PrinterModelDto, kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ...) // receiptdsl.engine/PrinterProfileDto.<init>|<init>(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean){}[0]
+    constructor <init>(receiptdsl.engine/PrinterModelDto, kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // receiptdsl.engine/PrinterProfileDto.<init>|<init>(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean;kotlin.Boolean){}[0]
 
     final val columnsPerLine // receiptdsl.engine/PrinterProfileDto.columnsPerLine|{}columnsPerLine[0]
         final fun <get-columnsPerLine>(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.columnsPerLine.<get-columnsPerLine>|<get-columnsPerLine>(){}[0]
@@ -238,6 +238,8 @@ final class receiptdsl.engine/PrinterProfileDto { // receiptdsl.engine/PrinterPr
         final fun <get-compatibilityMode>(): receiptdsl.engine/CompatibilityModeDto // receiptdsl.engine/PrinterProfileDto.compatibilityMode.<get-compatibilityMode>|<get-compatibilityMode>(){}[0]
     final val model // receiptdsl.engine/PrinterProfileDto.model|{}model[0]
         final fun <get-model>(): receiptdsl.engine/PrinterModelDto // receiptdsl.engine/PrinterProfileDto.model.<get-model>|<get-model>(){}[0]
+    final val optionalExternalBuzzerEnabled // receiptdsl.engine/PrinterProfileDto.optionalExternalBuzzerEnabled|{}optionalExternalBuzzerEnabled[0]
+        final fun <get-optionalExternalBuzzerEnabled>(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.optionalExternalBuzzerEnabled.<get-optionalExternalBuzzerEnabled>|<get-optionalExternalBuzzerEnabled>(){}[0]
     final val soundEnabled // receiptdsl.engine/PrinterProfileDto.soundEnabled|{}soundEnabled[0]
         final fun <get-soundEnabled>(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.soundEnabled.<get-soundEnabled>|<get-soundEnabled>(){}[0]
 
@@ -245,7 +247,8 @@ final class receiptdsl.engine/PrinterProfileDto { // receiptdsl.engine/PrinterPr
     final fun component2(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.component2|component2(){}[0]
     final fun component3(): receiptdsl.engine/CompatibilityModeDto // receiptdsl.engine/PrinterProfileDto.component3|component3(){}[0]
     final fun component4(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.component4|component4(){}[0]
-    final fun copy(receiptdsl.engine/PrinterModelDto = ..., kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ...): receiptdsl.engine/PrinterProfileDto // receiptdsl.engine/PrinterProfileDto.copy|copy(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean){}[0]
+    final fun component5(): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.component5|component5(){}[0]
+    final fun copy(receiptdsl.engine/PrinterModelDto = ..., kotlin/Int = ..., receiptdsl.engine/CompatibilityModeDto = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): receiptdsl.engine/PrinterProfileDto // receiptdsl.engine/PrinterProfileDto.copy|copy(receiptdsl.engine.PrinterModelDto;kotlin.Int;receiptdsl.engine.CompatibilityModeDto;kotlin.Boolean;kotlin.Boolean){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/PrinterProfileDto.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // receiptdsl.engine/PrinterProfileDto.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // receiptdsl.engine/PrinterProfileDto.toString|toString(){}[0]

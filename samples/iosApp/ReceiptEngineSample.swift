@@ -25,7 +25,8 @@ func compileGenericTreeSample() throws -> Data {
         model: .epsontmm30,
         columnsPerLine: 48,
         compatibilityMode: .strict,
-        soundEnabled: true
+        soundEnabled: true,
+        optionalExternalBuzzerEnabled: false
     )
     let response = ReceiptEngine().compile(job: job, printer: printer)
 

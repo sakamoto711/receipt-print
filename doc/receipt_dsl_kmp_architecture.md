@@ -67,8 +67,9 @@ PrintJobDto(
 - `columnsPerLine`: 論理桁数
 - `compatibilityMode`: `Strict` または `Compatibility`
 - `soundEnabled`: 開始アクションのサウンドを許可するか
+- `optionalExternalBuzzerEnabled`: TM-m30 の外付けブザーを設定済みか
 
-コマンドセット、対応カット、最大文字倍率、QR 対応、反転方式、サウンド方式などの capability は `model` から内部で解決する。呼び出し元が矛盾した capability を組み立てることはできない。
+コマンドセット、対応カット、最大文字倍率、QR 対応、反転方式、サウンド方式などの capability は `model` と外付けブザー設定から内部で解決する。呼び出し元が矛盾した capability を組み立てることはできない。TM-m30 の外付けブザー設定は既定で無効とし、有効な場合だけ `PlaySound` をブザー専用コマンドへ変換する。
 
 `Strict` は表現できない指定をエラーにする標準モードである。`Compatibility` は古いプリンターコマンドの制約に合わせ、丸めや代替を警告付きで許可するための明示的モードである。
 

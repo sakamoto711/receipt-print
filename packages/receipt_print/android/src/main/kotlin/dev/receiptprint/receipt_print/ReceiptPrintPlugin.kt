@@ -20,7 +20,7 @@ class ReceiptPrintPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
     }
 
     override fun onMethodCall(call: MethodCall, result: MethodChannel.Result) {
-        if (call.method != "compile" && call.method != "preview") {
+        if (call.method !in listOf("compile", "preview", "measureText", "renderSvg")) {
             result.notImplemented()
             return
         }
@@ -28,6 +28,15 @@ class ReceiptPrintPlugin : FlutterPlugin, MethodChannel.MethodCallHandler {
             val arguments = call.arguments as? Map<*, *>
                 ?: throw IllegalArgumentException("Expected an object")
             require(arguments["protocolVersion"] == 1) { "Unsupported protocol version" }
+            if (call.method == "measureText") {
+                result.success(ReceiptEngine().measureText(arguments["text"] as? String
+                    ?: throw IllegalArgumentException("Expected text")))
+                return
+            }
+            if (call.method == "renderSvg") {
+                result.error("unsupported_platform", "SVG rendering is currently available on iOS", null)
+                return
+            }
             val job = ReceiptChannelCodec.printJob(arguments["job"])
             val printer = ReceiptChannelCodec.printerProfile(arguments["printer"])
             val engine = ReceiptEngine()

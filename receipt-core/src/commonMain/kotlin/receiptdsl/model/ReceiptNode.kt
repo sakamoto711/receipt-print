@@ -66,3 +66,9 @@ public enum class TwoColumnOverflow {
     Clip,
     Fail,
 }
+
+/** A preformatted physical line. Runs are concatenated without padding or column expansion. */
+public data class InlineLine(
+    val runs: PersistentList<TextRun>,
+    val align: TextAlign = TextAlign.Left,
+) : BlockNode

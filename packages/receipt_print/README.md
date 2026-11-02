@@ -6,7 +6,7 @@
 
 ## 対応環境
 
-- Flutter 3.44.5 以降、Dart 3.12.2 以降（リポジトリの `.tool-versions` は Flutter 3.44.5）
+- Flutter 3.24.2 以降、Dart 3.5.2 以降（example の検証用SDKはリポジトリの `.tool-versions` を使用）
 - Android API 24 以降、JDK 17 以降、Kotlin 2.4.10 以降
 - iOS 15 以降、arm64 の実機と Apple Silicon Simulator
 
@@ -138,3 +138,14 @@ xcodebuild test -project Runner.xcodeproj -scheme Runner \
 ```
 
 サンプルアプリは `example` ディレクトリで `flutter run` を実行すると起動します。
+
+## 紙面プレビュー
+
+`ReceiptPrint.measureText(text)` は互換モードと同じCP932幅を返します。
+`ReceiptPrint.renderSvg(receiptLine, columns: 48)` はiOS上のJavaScriptCoreでSVGを生成します。
+ReceiptLine 4.0.1の `lib/receiptline.js` を改行コードだけLFにそろえ、ライセンスとともに同梱します。ネットワークへ接続しません。
+`ReceiptPreviewView(svg: svg)` を高さ制約のある場所へ配置すると、SVGの文字・QR・フィルターを画面内に描画します。
+WebViewのスクリプト・外部リソース・外部リンク遷移は無効です。AndroidのSVG描画は未対応です。
+
+`InlineLineDto` は、各 `TextRunDto` を余白なしに並べる整形済み1行です。
+取消数量など、既に反転用の余白を含む行を自動カラム調整なしに表現できます。

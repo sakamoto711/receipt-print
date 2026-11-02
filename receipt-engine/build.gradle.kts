@@ -36,6 +36,13 @@ kotlin {
     }
 
     sourceSets {
+        // Exercise the Flutter Android channel codec on the JVM without an Android
+        // device: the codec only depends on this module's public DTOs.
+        jvmTest {
+            kotlin.srcDir("../packages/receipt_print/android/src/main/kotlin/dev/receiptprint/receipt_print/codec")
+            kotlin.srcDir("../packages/receipt_print/android/src/test/kotlin")
+            dependencies { implementation(kotlin("test-junit")) }
+        }
         commonMain.dependencies {
             implementation(project(":receipt-core"))
             implementation(project(":receipt-command-escpos"))

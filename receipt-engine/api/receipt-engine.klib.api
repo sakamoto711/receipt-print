@@ -192,6 +192,22 @@ final class receiptdsl.engine/FeedDto : receiptdsl.engine/PrintNodeDto { // rece
     final fun toString(): kotlin/String // receiptdsl.engine/FeedDto.toString|toString(){}[0]
 }
 
+final class receiptdsl.engine/InlineLineDto : receiptdsl.engine/PrintNodeDto { // receiptdsl.engine/InlineLineDto|null[0]
+    constructor <init>(kotlin.collections/List<receiptdsl.engine/TextRunDto>, receiptdsl.engine/TextAlignDto = ...) // receiptdsl.engine/InlineLineDto.<init>|<init>(kotlin.collections.List<receiptdsl.engine.TextRunDto>;receiptdsl.engine.TextAlignDto){}[0]
+
+    final val align // receiptdsl.engine/InlineLineDto.align|{}align[0]
+        final fun <get-align>(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/InlineLineDto.align.<get-align>|<get-align>(){}[0]
+    final val runs // receiptdsl.engine/InlineLineDto.runs|{}runs[0]
+        final fun <get-runs>(): kotlin.collections/List<receiptdsl.engine/TextRunDto> // receiptdsl.engine/InlineLineDto.runs.<get-runs>|<get-runs>(){}[0]
+
+    final fun component1(): kotlin.collections/List<receiptdsl.engine/TextRunDto> // receiptdsl.engine/InlineLineDto.component1|component1(){}[0]
+    final fun component2(): receiptdsl.engine/TextAlignDto // receiptdsl.engine/InlineLineDto.component2|component2(){}[0]
+    final fun copy(kotlin.collections/List<receiptdsl.engine/TextRunDto> = ..., receiptdsl.engine/TextAlignDto = ...): receiptdsl.engine/InlineLineDto // receiptdsl.engine/InlineLineDto.copy|copy(kotlin.collections.List<receiptdsl.engine.TextRunDto>;receiptdsl.engine.TextAlignDto){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.engine/InlineLineDto.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.engine/InlineLineDto.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.engine/InlineLineDto.toString|toString(){}[0]
+}
+
 final class receiptdsl.engine/PreviewResponseDto { // receiptdsl.engine/PreviewResponseDto|null[0]
     constructor <init>(kotlin/String?, kotlin.collections/List<receiptdsl.engine/DiagnosticDto>) // receiptdsl.engine/PreviewResponseDto.<init>|<init>(kotlin.String?;kotlin.collections.List<receiptdsl.engine.DiagnosticDto>){}[0]
 
@@ -280,6 +296,7 @@ final class receiptdsl.engine/ReceiptEngine { // receiptdsl.engine/ReceiptEngine
     constructor <init>() // receiptdsl.engine/ReceiptEngine.<init>|<init>(){}[0]
 
     final fun compile(receiptdsl.engine/PrintJobDto, receiptdsl.engine/PrinterProfileDto): receiptdsl.engine/CompileResponseDto // receiptdsl.engine/ReceiptEngine.compile|compile(receiptdsl.engine.PrintJobDto;receiptdsl.engine.PrinterProfileDto){}[0]
+    final fun measureText(kotlin/String): kotlin/Int // receiptdsl.engine/ReceiptEngine.measureText|measureText(kotlin.String){}[0]
     final fun preview(receiptdsl.engine/PrintJobDto, receiptdsl.engine/PrinterProfileDto): receiptdsl.engine/PreviewResponseDto // receiptdsl.engine/ReceiptEngine.preview|preview(receiptdsl.engine.PrintJobDto;receiptdsl.engine.PrinterProfileDto){}[0]
 }
 

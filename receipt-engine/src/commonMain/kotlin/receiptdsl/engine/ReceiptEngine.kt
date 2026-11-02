@@ -46,6 +46,12 @@ public data class PreviewResponseDto(
 }
 
 public class ReceiptEngine {
+    /** Logical CP932 columns, using the same unsupported-character policy as compatibility layout. */
+    public fun measureText(text: String): Int =
+        receiptdsl.encoding.Cp932TextCodec.measure(
+            text, receiptdsl.encoding.UnsupportedGlyphPolicy.Drop,
+        ).columns
+
     private val compiler: ReceiptCompiler = ReceiptCompiler()
 
     public fun compile(

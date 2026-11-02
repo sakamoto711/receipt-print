@@ -1,6 +1,7 @@
 package receiptdsl.engine
 
 import kotlinx.collections.immutable.toPersistentList
+import receiptdsl.model.InlineLine
 import receiptdsl.model.BlockNode
 import receiptdsl.model.Column
 import receiptdsl.model.CompatibilityMode
@@ -48,6 +49,7 @@ private fun PrintNodeDto.toBlockNode(): BlockNode = when (this) {
         wrap = wrap.toWrapMode(),
         preserveNewLines = preserveNewLines,
     )
+    is InlineLineDto -> InlineLine(runs.map { it.toTextRun() }.toPersistentList(), align.toTextAlign())
     is TwoColumnDto -> TwoColumnLine(
         leading = leading.toTextRun(),
         trailing = trailing?.toTextRun(),

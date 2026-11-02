@@ -1,0 +1,26 @@
+name: receipt_print
+description: Compile generic receipt trees with the receipt-print Kotlin Multiplatform engine.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.12.2
+  flutter: '>=3.44.5'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: dev.receiptprint.receipt_print
+        pluginClass: ReceiptPrintPlugin
+      ios:
+        pluginClass: ReceiptPrintPlugin

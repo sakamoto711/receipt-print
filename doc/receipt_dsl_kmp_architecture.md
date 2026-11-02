@@ -111,3 +111,30 @@ receipt-engine
 ## 7. 配布境界
 
 Kotlin 利用者には各 KMP publication を提供する。Swift 利用者には `receipt-engine` が静的 `ReceiptPrint.xcframework` を提供する。どちらの配布物にも TCP クライアントや業務帳票モデルは含めない。
+
+Flutter 利用者には `packages/receipt_print` を提供する。
+このパッケージの Dart API は印刷ツリーとプリンタープロファイルを MethodChannel に渡す。
+Android 側は JVM 配布物、iOS 側は同じ `ReceiptPrint.xcframework` の DTO を構築して `ReceiptEngine` を呼び出す。
+Kotlin と Swift の直接利用に Flutter は必要ない。
+
+```text
+Flutter → Dart API → MethodChannel → Kotlin / Swift のアダプター → ReceiptEngine
+Android → Kotlin API → ReceiptEngine
+iOS     → Swift API  → ReceiptEngine
+```
+
+Channel は `dev.receiptprint/receipt_print`、メソッドは `compile` と `preview` とする。
+引数には `protocolVersion: 1`、`job`、`printer` を渡す。
+印刷ノードは `type` で識別し、列挙値には Kotlin の列挙名を使う。
+Dart の `PrintNodeListDto` 相当は `List<PrintNodeDto>` として公開する。
+Kotlin の `Int` に対応する入力は符号付き 32 ビット整数の範囲とする。
+
+戻り値は `compile` が `bytes` と `diagnostics`、`preview` が `receiptLine` と `diagnostics` を持つ Map とする。
+バイト列は StandardMessageCodec のバイト配列として返し、Dart では `Uint8List` として受け取る。
+検証エラーは KMP の診断として返し、不正な Channel 引数は `invalid_arguments` の `PlatformException` とする。
+変換処理は Android と iOS のそれぞれで直列のバックグラウンドキューに載せる。
+
+`prepareFlutterAndroid` は JVM の Maven 配布物を `packages/receipt_print/android/maven` に配置する。
+`prepareFlutterIos` は Release の XCFramework を `packages/receipt_print/ios/Frameworks` に配置する。
+`prepareFlutterPlugin` は両方を実行する。
+生成物は Git 管理対象外で、KMP を変更したときは再生成する。

@@ -33,6 +33,7 @@ PrintJobDto
 - `receipt-engine`: 汎用 DTO、機種解決、コマンド・プレビュー Facade、XCFramework
 - `samples/kotlinApp`: Kotlin から汎用 DTO を利用する例
 - `samples/iosApp`: `ReceiptPrint.xcframework` を Swift から利用する例
+- `packages/receipt_print`: Dart API と Android / iOS の MethodChannel 実装を持つ Flutter プラグイン
 
 詳しい境界と変換規則は[アーキテクチャ文書](doc/receipt_dsl_kmp_architecture.md)を参照してください。
 
@@ -59,3 +60,25 @@ Swift 向け XCFramework は次のコマンドで `receipt-engine/build/XCFramew
 ./gradlew :receipt-engine:assembleReceiptPrintDebugXCFramework
 ./gradlew swiftSampleCheck
 ```
+
+## Flutter からの利用
+
+リポジトリのルートで、プラグインが参照する JVM 配布物と XCFramework を生成します。
+iOS 向けの生成には macOS と Xcode が必要です。
+
+```shell
+./gradlew prepareFlutterPlugin
+```
+
+Flutter アプリの `pubspec.yaml` にローカルパッケージを追加します。
+`path` はアプリからこのリポジトリへの相対パスに合わせてください。
+
+```yaml
+dependencies:
+  receipt_print:
+    path: ../receipt-print/packages/receipt_print
+```
+
+Flutter からは Dart API を経由し、Android の Kotlin プロジェクトと iOS の Swift プロジェクトからは従来どおり `ReceiptEngine` を直接呼び出します。
+KMP 本体は Flutter に依存しません。
+利用例、対応環境、検証手順は[Flutter パッケージの README](packages/receipt_print/README.md)を参照してください。

@@ -259,3 +259,31 @@ tasks.register("publishAllToBuildRepository") {
         ":receipt-engine:publishAllPublicationsToBuildRepository",
     )
 }
+
+tasks.register<Sync>("prepareFlutterAndroid") {
+    group = "build"
+    description = "Bundles JVM Maven artifacts for the Flutter Android plugin."
+    listOf("receipt-core", "receipt-command-escpos", "receipt-command-star", "receipt-receiptline", "receipt-engine")
+        .forEach {
+            dependsOn(":$it:publishJvmPublicationToBuildRepository")
+            dependsOn(":$it:publishKotlinMultiplatformPublicationToBuildRepository")
+        }
+    from(layout.buildDirectory.dir("maven-repository")) {
+        include("receipt-kmp/**")
+    }
+    into(layout.projectDirectory.dir("packages/receipt_print/android/maven"))
+}
+
+tasks.register<Sync>("prepareFlutterIos") {
+    group = "build"
+    description = "Bundles ReceiptPrint.xcframework for the Flutter iOS plugin."
+    dependsOn(":receipt-engine:assembleReceiptPrintReleaseXCFramework")
+    from(layout.projectDirectory.dir("receipt-engine/build/XCFrameworks/release"))
+    into(layout.projectDirectory.dir("packages/receipt_print/ios/Frameworks"))
+}
+
+tasks.register("prepareFlutterPlugin") {
+    group = "build"
+    description = "Prepares both native dependencies before using the Flutter package."
+    dependsOn("prepareFlutterAndroid", "prepareFlutterIos")
+}

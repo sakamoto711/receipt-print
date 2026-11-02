@@ -76,6 +76,20 @@ public final class receiptdsl/engine/FeedDto : receiptdsl/engine/PrintNodeDto {
 	public fun toString ()Ljava/lang/String;
 }
 
+public final class receiptdsl/engine/InlineLineDto : receiptdsl/engine/PrintNodeDto {
+	public fun <init> (Ljava/util/List;Lreceiptdsl/engine/TextAlignDto;)V
+	public synthetic fun <init> (Ljava/util/List;Lreceiptdsl/engine/TextAlignDto;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun copy (Ljava/util/List;Lreceiptdsl/engine/TextAlignDto;)Lreceiptdsl/engine/InlineLineDto;
+	public static synthetic fun copy$default (Lreceiptdsl/engine/InlineLineDto;Ljava/util/List;Lreceiptdsl/engine/TextAlignDto;ILjava/lang/Object;)Lreceiptdsl/engine/InlineLineDto;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlign ()Lreceiptdsl/engine/TextAlignDto;
+	public final fun getRuns ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class receiptdsl/engine/JobActionDto : java/lang/Enum {
 	public static final field PlaySound Lreceiptdsl/engine/JobActionDto;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
@@ -201,6 +215,7 @@ public final class receiptdsl/engine/QrErrorCorrectionDto : java/lang/Enum {
 public final class receiptdsl/engine/ReceiptEngine {
 	public fun <init> ()V
 	public final fun compile (Lreceiptdsl/engine/PrintJobDto;Lreceiptdsl/engine/PrinterProfileDto;)Lreceiptdsl/engine/CompileResponseDto;
+	public final fun measureText (Ljava/lang/String;)I
 	public final fun preview (Lreceiptdsl/engine/PrintJobDto;Lreceiptdsl/engine/PrinterProfileDto;)Lreceiptdsl/engine/PreviewResponseDto;
 }
 

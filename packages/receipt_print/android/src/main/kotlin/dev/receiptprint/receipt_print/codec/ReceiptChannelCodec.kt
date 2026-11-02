@@ -107,6 +107,9 @@ internal object ReceiptChannelCodec {
     private fun node(value: Any?): PrintNodeDto {
         val map = obj(value)
         return when (string(map["type"])) {
+            "inline" -> receiptdsl.engine.InlineLineDto(
+                list(map["runs"]).map { textRun(it) }, enum<TextAlignDto>(map["align"]),
+            )
             "text" -> text(map)
             "column" -> column(map)
             "twoColumn" -> twoColumn(map)

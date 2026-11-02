@@ -9,6 +9,40 @@ import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 public class ReceiptEngineTest {
+    @kotlin.test.Test
+    fun preformattedCancellationLineKeepsExistingInverseMarginsOnEveryModel() {
+        val job = PrintJobDto(listOf(TicketDto(PrintNodeListDto(listOf(
+            InlineLineDto(listOf(
+                TextRunDto("□ ALPHA" + " ".repeat(19), TextStyleDto(heightScale = 2)),
+                TextRunDto(" 1点 ", TextStyleDto(heightScale = 2, inverted = true)),
+            )),
+        )))))
+        PrinterModelDto.entries.forEach { model ->
+            val printer = PrinterProfileDto(model, columnsPerLine = 32)
+            val compiled = ReceiptEngine().compile(job, printer)
+            kotlin.test.assertTrue(compiled.isSuccess, "$model: ${compiled.diagnostics}")
+            kotlin.test.assertTrue(compiled.diagnostics.isEmpty(), "$model: ${compiled.diagnostics}")
+            val preview = ReceiptEngine().preview(job, printer)
+            kotlin.test.assertTrue(preview.isSuccess, "$model: ${preview.diagnostics}")
+            kotlin.test.assertTrue(preview.receiptLine!!.contains("` 1点 "))
+        }
+    }
+
+    @kotlin.test.Test
+    fun preformattedLineRejectsEmbeddedNewlines() {
+        val job = PrintJobDto(listOf(TicketDto(PrintNodeListDto(listOf(
+            InlineLineDto(listOf(TextRunDto("A\nB"))),
+        )))))
+        kotlin.test.assertFalse(ReceiptEngine().compile(job,
+            PrinterProfileDto(PrinterModelDto.EpsonTmM30)).isSuccess)
+    }
+
+    @kotlin.test.Test
+    fun flutterMeasurementUsesCompatibilityCp932Columns() {
+        kotlin.test.assertEquals(6, ReceiptEngine().measureText("日本Aｱ😀"))
+        kotlin.test.assertEquals(0, ReceiptEngine().measureText("😀"))
+    }
+
     private val engine = ReceiptEngine()
 
     @Test

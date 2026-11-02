@@ -6,13 +6,14 @@ public class ReceiptPrintPlugin: NSObject, FlutterPlugin {
     private let queue = DispatchQueue(label: "dev.receiptprint/receipt_print")
 
     public static func register(with registrar: FlutterPluginRegistrar) {
+        registrar.register(ReceiptPreviewFactory(messenger: registrar.messenger()), withId: "receipt_print/preview")
         let channel = FlutterMethodChannel(
             name: "dev.receiptprint/receipt_print", binaryMessenger: registrar.messenger())
         registrar.addMethodCallDelegate(ReceiptPrintPlugin(), channel: channel)
     }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-        guard call.method == "compile" || call.method == "preview" else {
+        guard ["compile", "preview", "measureText", "renderSvg"].contains(call.method) else {
             result(FlutterMethodNotImplemented)
             return
         }
@@ -21,6 +22,27 @@ public class ReceiptPrintPlugin: NSObject, FlutterPlugin {
                 let arguments = try ReceiptChannelCodec.object(call.arguments)
                 guard let version = arguments["protocolVersion"] as? Int, version == 1 else {
                     throw ReceiptChannelError.invalidArguments("Unsupported protocol version")
+                }
+                if call.method == "measureText" {
+                    let width = ReceiptEngine().measureText(text: try ReceiptChannelCodec.string(arguments["text"]))
+                    DispatchQueue.main.async { result(width) }
+                    return
+                }
+                if call.method == "renderSvg" {
+                    let bundle: Bundle
+                    #if SWIFT_PACKAGE
+                    bundle = Bundle.module
+                    #else
+                    bundle = Bundle(for: ReceiptPrintPlugin.self)
+                    #endif
+                    guard let url = bundle.url(forResource: "receiptline", withExtension: "js")
+                        ?? Bundle.main.url(forResource: "receiptline", withExtension: "js") else {
+                        throw ReceiptChannelError.invalidArguments("Missing bundled ReceiptLine renderer")
+                    }
+                    let svg = try ReceiptSvgRenderer.render(ReceiptChannelCodec.string(arguments["receiptLine"]),
+                        columns: Int(ReceiptChannelCodec.int(arguments["columns"])), scriptURL: url)
+                    DispatchQueue.main.async { result(svg) }
+                    return
                 }
                 let job = try ReceiptChannelCodec.printJob(arguments["job"])
                 let printer = try ReceiptChannelCodec.printerProfile(arguments["printer"])

@@ -51,6 +51,7 @@ PrintJobDto(
 `PrintNodeDto` は次のノードを持つ。
 
 - `TextDto`: 文字列、スタイル、折り返し、新行保持
+- `InlineLineDto`: 暗黙の余白を追加しない、複数スタイルの整形済み1行
 - `TwoColumnDto`: 左右の文字列と予約幅、溢れ方針
 - `RuleDto`: 罫線
 - `QrCodeDto`: データ、セルサイズ、誤り訂正、配置

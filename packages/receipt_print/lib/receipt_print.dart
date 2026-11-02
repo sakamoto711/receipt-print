@@ -5,10 +5,23 @@ import 'src/responses.dart';
 
 export 'src/models.dart';
 export 'src/responses.dart';
+export 'src/preview_view.dart';
 
 /// Converts print trees; the caller owns printer connections and transmission.
 final class ReceiptPrint {
   static const _channel = MethodChannel('dev.receiptprint/receipt_print');
+
+  Future<int> measureText(String text) async => (await _channel.invokeMethod<int>('measureText', {
+        'protocolVersion': 1,
+        'text': text,
+      }))!;
+
+  /// Renders ReceiptLine to SVG locally on iOS. Does not access a printer or network.
+  Future<String> renderSvg(String receiptLine, {required int columns}) async => (await _channel.invokeMethod<String>('renderSvg', {
+        'protocolVersion': 1,
+        'receiptLine': receiptLine,
+        'columns': columns,
+      }))!;
 
   Future<CompileResponseDto> compile({
     required PrintJobDto job,

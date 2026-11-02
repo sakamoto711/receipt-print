@@ -645,6 +645,22 @@ final class receiptdsl.model/Feed : receiptdsl.model/BlockNode { // receiptdsl.m
     final fun toString(): kotlin/String // receiptdsl.model/Feed.toString|toString(){}[0]
 }
 
+final class receiptdsl.model/InlineLine : receiptdsl.model/BlockNode { // receiptdsl.model/InlineLine|null[0]
+    constructor <init>(kotlinx.collections.immutable/PersistentList<receiptdsl.model/TextRun>, receiptdsl.model/TextAlign = ...) // receiptdsl.model/InlineLine.<init>|<init>(kotlinx.collections.immutable.PersistentList<receiptdsl.model.TextRun>;receiptdsl.model.TextAlign){}[0]
+
+    final val align // receiptdsl.model/InlineLine.align|{}align[0]
+        final fun <get-align>(): receiptdsl.model/TextAlign // receiptdsl.model/InlineLine.align.<get-align>|<get-align>(){}[0]
+    final val runs // receiptdsl.model/InlineLine.runs|{}runs[0]
+        final fun <get-runs>(): kotlinx.collections.immutable/PersistentList<receiptdsl.model/TextRun> // receiptdsl.model/InlineLine.runs.<get-runs>|<get-runs>(){}[0]
+
+    final fun component1(): kotlinx.collections.immutable/PersistentList<receiptdsl.model/TextRun> // receiptdsl.model/InlineLine.component1|component1(){}[0]
+    final fun component2(): receiptdsl.model/TextAlign // receiptdsl.model/InlineLine.component2|component2(){}[0]
+    final fun copy(kotlinx.collections.immutable/PersistentList<receiptdsl.model/TextRun> = ..., receiptdsl.model/TextAlign = ...): receiptdsl.model/InlineLine // receiptdsl.model/InlineLine.copy|copy(kotlinx.collections.immutable.PersistentList<receiptdsl.model.TextRun>;receiptdsl.model.TextAlign){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // receiptdsl.model/InlineLine.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // receiptdsl.model/InlineLine.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // receiptdsl.model/InlineLine.toString|toString(){}[0]
+}
+
 final class receiptdsl.model/PrintJob { // receiptdsl.model/PrintJob|null[0]
     constructor <init>(kotlinx.collections.immutable/PersistentList<receiptdsl.model/Ticket>, receiptdsl.model/PrintDirection = ..., kotlinx.collections.immutable/PersistentList<receiptdsl.model/JobAction> = ...) // receiptdsl.model/PrintJob.<init>|<init>(kotlinx.collections.immutable.PersistentList<receiptdsl.model.Ticket>;receiptdsl.model.PrintDirection;kotlinx.collections.immutable.PersistentList<receiptdsl.model.JobAction>){}[0]
 

@@ -5,8 +5,7 @@ import 'package:receipt_print/receipt_print.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   const channel = MethodChannel('dev.receiptprint/receipt_print');
-  final messenger =
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
+  final messenger = TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger;
   final engine = ReceiptPrint();
   const job = PrintJobDto(
     tickets: [
@@ -33,6 +32,25 @@ void main() {
 
   tearDown(() => messenger.setMockMethodCallHandler(channel, null));
 
+  test('measurement and local SVG rendering use the existing channel', () async {
+    final calls = <MethodCall>[];
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(const MethodChannel('dev.receiptprint/receipt_print'), (call) async {
+      calls.add(call);
+      return call.method == 'measureText' ? 6 : '<svg/>';
+    });
+    final api = ReceiptPrint();
+    expect(await api.measureText('日本Aｱ'), 6);
+    expect(await api.renderSvg('日本語', columns: 48), '<svg/>');
+    expect(calls.map((e) => e.method), ['measureText', 'renderSvg']);
+    expect(calls.last.arguments, {'protocolVersion': 1, 'receiptLine': '日本語', 'columns': 48});
+  });
+  test('inline lines keep independently styled runs without adding margins', () {
+    const node = InlineLineDto(runs: [TextRunDto(value: '□ ALPHA'), TextRunDto(value: ' 1点 ', style: TextStyleDto(inverted: true))]);
+    final map = node.toMap();
+    expect(map['type'], 'inline');
+    expect((map['runs'] as List).last['value'], ' 1点 ');
+    expect((map['runs'] as List).last['style']['inverted'], isTrue);
+  });
   test(
     'compile sends codec-compatible typed trees and preserves unsigned bytes',
     () async {

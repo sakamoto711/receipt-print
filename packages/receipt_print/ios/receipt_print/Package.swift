@@ -13,7 +13,8 @@ let package = Package(
             dependencies: [
                 "ReceiptPrint",
                 .product(name: "FlutterFramework", package: "FlutterFramework")
-            ]
+            ],
+            resources: [.process("Resources")]
         )
     ]
 )

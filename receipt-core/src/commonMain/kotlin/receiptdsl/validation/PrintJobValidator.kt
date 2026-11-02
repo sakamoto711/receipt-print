@@ -8,6 +8,7 @@ import receiptdsl.diagnostic.InvalidLayout
 import receiptdsl.diagnostic.NodePath
 import receiptdsl.diagnostic.UnsupportedFeature
 import receiptdsl.diagnostic.ValueClamped
+import receiptdsl.model.InlineLine
 import receiptdsl.model.BlockNode
 import receiptdsl.model.Column
 import receiptdsl.model.CompatibilityMode
@@ -158,6 +159,13 @@ public class DefaultPrintJobValidator : PrintJobValidator {
                 }
             }
 
+            is InlineLine -> node.runs.forEachIndexed { index, run ->
+                if (run.text.any { it == '\r' || it == '\n' }) {
+                    diagnostics += InvalidLayout(reason = "InlineLine cannot contain newlines", path = path.child(index))
+                }
+                validateNode(TextBlock(run.text, run.style), inheritedStyle, availableColumns,
+                    path.child(index), profile, diagnostics)
+            }
             is TwoColumnLine -> validateTwoColumn(
                 line = node,
                 inheritedStyle = inheritedStyle,

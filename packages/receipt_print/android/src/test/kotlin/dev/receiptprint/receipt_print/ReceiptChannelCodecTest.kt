@@ -6,6 +6,22 @@ import org.junit.Test
 import receiptdsl.engine.*
 
 class ReceiptChannelCodecTest {
+    @Test fun inlineRunsKeepTheirExistingInverseMargins() {
+        val normal = mapOf("widthScale" to 1, "heightScale" to 2,
+            "emphasized" to false, "inverted" to false, "align" to "Left")
+        val job = ReceiptChannelCodec.printJob(mapOf(
+            "direction" to "Normal", "startActions" to emptyList<String>(),
+            "tickets" to listOf(mapOf("cut" to "Partial", "children" to listOf(
+                mapOf("type" to "inline", "align" to "Left", "runs" to listOf(
+                    mapOf("value" to "□ ALPHA" + " ".repeat(19), "style" to normal),
+                    mapOf("value" to " 1点 ", "style" to (normal + ("inverted" to true))),
+                )),
+            ))),
+        ))
+        val result = ReceiptEngine().compile(job, PrinterProfileDto(PrinterModelDto.EpsonTmM30, columnsPerLine = 32))
+        assertTrue(result.diagnostics.toString(), result.isSuccess)
+    }
+
     private val style = mapOf(
         "widthScale" to 2, "heightScale" to 3, "emphasized" to true,
         "inverted" to true, "align" to "Right",

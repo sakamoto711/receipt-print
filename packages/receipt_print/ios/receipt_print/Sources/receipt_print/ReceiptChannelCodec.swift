@@ -194,6 +194,8 @@ enum ReceiptChannelCodec {
     private static func node(_ value: Any?) throws -> PrintNodeDto {
         let map = try object(value)
         switch try string(map["type"]) {
+        case "inline": return InlineLineDto(runs: try list(map["runs"]).map { try textRun($0) },
+            align: try textAlignDto(map["align"]))
         case "text": return try text(map)
         case "column": return try column(map)
         case "twoColumn": return try twoColumn(map)
@@ -224,7 +226,7 @@ enum ReceiptChannelCodec {
         }
         return value
     }
-    private static func string(_ value: Any?) throws -> String {
+    static func string(_ value: Any?) throws -> String {
         guard let value = value as? String else {
             throw ReceiptChannelError.invalidArguments("Expected a string")
         }
@@ -236,7 +238,7 @@ enum ReceiptChannelCodec {
         }
         return value.boolValue
     }
-    private static func int(_ value: Any?) throws -> Int32 {
+    static func int(_ value: Any?) throws -> Int32 {
         guard let value = value as? NSNumber, CFGetTypeID(value) != CFBooleanGetTypeID(),
               let result = Int32(exactly: value.doubleValue) else {
             throw ReceiptChannelError.invalidArguments("Expected an Int32 integer")

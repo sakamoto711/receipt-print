@@ -11,7 +11,8 @@ PrintJobDto
 └── tickets: List<TicketDto>
     ├── children: PrintNodeListDto  // value class
     │   ├── TextDto
-    │   ├── TwoColumnDto
+    │   ├── InlineLineDto
+│   ├── TwoColumnDto
     │   ├── RuleDto
     │   ├── QrCodeDto
     │   ├── FeedDto

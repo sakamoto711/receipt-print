@@ -282,3 +282,12 @@ final class PrinterProfileDto {
     'optionalExternalBuzzerEnabled': optionalExternalBuzzerEnabled,
   };
 }
+
+/// Preformatted inline text with no implicit padding around inverted runs.
+final class InlineLineDto extends PrintNodeDto {
+  const InlineLineDto({required this.runs, this.align = TextAlignDto.left});
+  final List<TextRunDto> runs;
+  final TextAlignDto align;
+  @override
+  Map<String, Object?> toMap() => {'type': 'inline', 'runs': runs.map((e) => e.toMap()).toList(), 'align': align.wireValue};
+}

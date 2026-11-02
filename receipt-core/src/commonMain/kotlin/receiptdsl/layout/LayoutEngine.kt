@@ -12,6 +12,7 @@ import receiptdsl.encoding.ByteString
 import receiptdsl.encoding.Cp932TextCodec
 import receiptdsl.encoding.TextCodec
 import receiptdsl.encoding.UnsupportedGlyphPolicy
+import receiptdsl.model.InlineLine
 import receiptdsl.model.BlockNode
 import receiptdsl.model.Column
 import receiptdsl.model.CompatibilityMode
@@ -102,6 +103,14 @@ public class DefaultLayoutEngine(
                 diagnostics = diagnostics,
             )
 
+            is InlineLine -> {
+                val glyphs = node.runs.flatMap { run ->
+                    val style = resolveStyle(inheritedStyle, run.style, profile).copy(align = node.align)
+                    encodeGlyphs(run.text, style, path, profile, diagnostics)
+                }
+                wrapGlyphs(glyphs, profile.columnsPerLine, WrapMode.None, path, diagnostics)
+                    .ifEmpty { listOf(emptyList()) }.map(::textLine)
+            }
             is TwoColumnLine -> layoutTwoColumn(
                 line = node,
                 inheritedStyle = inheritedStyle,

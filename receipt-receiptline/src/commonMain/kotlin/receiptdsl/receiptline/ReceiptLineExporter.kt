@@ -9,6 +9,7 @@ import receiptdsl.diagnostic.DiagnosticSeverity
 import receiptdsl.diagnostic.InvalidLayout
 import receiptdsl.diagnostic.NodePath
 import receiptdsl.layout.DefaultLayoutEngine
+import receiptdsl.model.InlineLine
 import receiptdsl.model.BlockNode
 import receiptdsl.model.Column
 import receiptdsl.model.CommandSet
@@ -134,6 +135,27 @@ public object DefaultReceiptLineExporter : ReceiptLineExporter {
                 }
             }
             is TextBlock -> appendTextBlock(node, inheritedStyle, path, lines, diagnostics)
+            is InlineLine -> {
+                lines += "{text:nowrap}"
+                val text = buildString {
+                    var previousMarker = ""
+                    var previousInverse = false
+                    var previousEmphasis = false
+                    node.runs.forEach { run ->
+                        val style = resolveStyle(inheritedStyle, run.style)
+                        val marker = styleMarker(style, path, diagnostics)
+                        if (marker != previousMarker) append(if (marker.isEmpty()) previousMarker else marker)
+                        if (style.inverted != previousInverse) append('`')
+                        if (style.emphasized != previousEmphasis) append('"')
+                        append(escapeText(run.text))
+                        previousMarker = marker
+                        previousInverse = style.inverted
+                        previousEmphasis = style.emphasized
+                    }
+                }
+                lines += alignText(text, node.align)
+                lines += "{text:wrap}"
+            }
             is TwoColumnLine -> appendTwoColumn(node, inheritedStyle, path, lines, diagnostics)
             is Rule -> {
                 lines += "---"

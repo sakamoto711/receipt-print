@@ -110,3 +110,9 @@ public enum class QrErrorCorrectionDto {
     Quartile,
     High,
 }
+
+/** A preformatted line with independently styled text runs and no implicit padding. */
+public data class InlineLineDto(
+    val runs: List<TextRunDto>,
+    val align: TextAlignDto = TextAlignDto.Left,
+) : PrintNodeDto
